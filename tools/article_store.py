@@ -37,12 +37,38 @@ class ResolutionRecord(BaseModel):
         return cls(fix_id=1, ticket_count=1)
 
 
-class SuggestedStep(BaseModel):
-    text: str = Field(description="Actionable troubleshooting guidance")
+class ProductCount(BaseModel):
+    name: str = Field(description="Product name from the product column")
+    count: int = Field(description="Number of tickets for this product in the cluster")
+
+    @classmethod
+    def from_any(cls, item: Any) -> ProductCount:
+        if isinstance(item, cls):
+            return item
+        if isinstance(item, dict):
+            return cls(name=str(item.get("name") or item.get("product") or ""), count=int(item.get("count", 0)))
+        return cls(name=str(item), count=0)
+
+
+class SeverityCount(BaseModel):
+    severity: str = Field(description="Severity tier (P1, P2, P3, P4)")
+    count: int = Field(description="Number of tickets with this severity in the cluster")
+
+    @classmethod
+    def from_any(cls, item: Any) -> SeverityCount:
+        if isinstance(item, cls):
+            return item
+        if isinstance(item, dict):
+            return cls(severity=str(item.get("severity") or item.get("level") or ""), count=int(item.get("count", 0)))
+        return cls(severity=str(item), count=0)
+
+
+class SuggestedTriageStep(BaseModel):
+    text: str = Field(description="Information gathering or lookup step")
     label: str = Field(default="AI-suggested, unverified", description="Must be labeled 'AI-suggested, unverified'")
 
     @classmethod
-    def from_any(cls, item: Any) -> SuggestedStep:
+    def from_any(cls, item: Any) -> SuggestedTriageStep:
         if isinstance(item, cls):
             return item
         if isinstance(item, str):
@@ -52,6 +78,11 @@ class SuggestedStep(BaseModel):
             label = item.get("label") or item.get("note") or "AI-suggested, unverified"
             return cls(text=str(text), label=str(label))
         return cls(text=str(item), label="AI-suggested, unverified")
+
+
+class SuggestedStep(SuggestedTriageStep):
+    """Alias for backwards compatibility."""
+    pass
 
 
 class ArticleEvidence(BaseModel):
@@ -76,14 +107,18 @@ class ArticleEvidence(BaseModel):
 class KBArticleDraft(BaseModel):
     article_id: str = Field(description="Identifier in format 'KB-<cluster slug>-v<version>'")
     cluster_id: str = Field(description="Cluster in format '<category>|<subcategory>'")
-    title: str = Field(description="Clear procedural article title")
+    title: str = Field(description="Procedural article title incorporating real cluster name")
     version: int = Field(default=1, description="Article version number")
     status: Literal["draft", "pending_review", "published", "flagged_stale", "retired"] = Field(
         default="draft", description="Lifecycle status"
     )
     what_we_see: str = Field(description="Factual symptoms, volume, repetitive rate, products, severity, citing tickets")
-    resolutions_on_record: list[ResolutionRecord] = Field(description="Fix IDs with ticket counts and context")
-    suggested_steps: list[SuggestedStep] = Field(description="Cautious steps, max 5, each labeled 'AI-suggested, unverified'")
+    products: list[ProductCount] = Field(default_factory=list, description="Exact product counts from product column")
+    severity_mix: list[SeverityCount] = Field(default_factory=list, description="Exact severity counts in cluster")
+    resolutions_on_record: list[ResolutionRecord] = Field(description="Fix IDs with ticket counts and other_categories_count")
+    suggested_triage_steps: list[SuggestedTriageStep] = Field(
+        default_factory=list, description="Max 5 generic steps on gathering and checking information"
+    )
     needs_sme_input: list[str] = Field(description="List of specific questions and facts a human SME must confirm")
     evidence: ArticleEvidence = Field(description="Ground truth ticket evidence")
     verifier_unresolved: bool = Field(default=False, description="Flagged true if unresolved after max verifier rounds")
@@ -94,13 +129,19 @@ class KBArticleDraft(BaseModel):
     def model_validate(cls, obj: Any, *args, **kwargs) -> KBArticleDraft:
         if isinstance(obj, dict):
             # Pre-process nested fields with from_any
+            if "products" in obj and isinstance(obj["products"], list):
+                obj["products"] = [ProductCount.from_any(x).model_dump() for x in obj["products"]]
+            if "severity_mix" in obj and isinstance(obj["severity_mix"], list):
+                obj["severity_mix"] = [SeverityCount.from_any(x).model_dump() for x in obj["severity_mix"]]
             if "resolutions_on_record" in obj and isinstance(obj["resolutions_on_record"], list):
                 obj["resolutions_on_record"] = [
                     ResolutionRecord.from_any(x).model_dump() for x in obj["resolutions_on_record"]
                 ]
-            if "suggested_steps" in obj and isinstance(obj["suggested_steps"], list):
-                obj["suggested_steps"] = [
-                    SuggestedStep.from_any(x).model_dump() for x in obj["suggested_steps"]
+            if "suggested_steps" in obj and ("suggested_triage_steps" not in obj or not obj["suggested_triage_steps"]):
+                obj["suggested_triage_steps"] = obj["suggested_steps"]
+            if "suggested_triage_steps" in obj and isinstance(obj["suggested_triage_steps"], list):
+                obj["suggested_triage_steps"] = [
+                    SuggestedTriageStep.from_any(x).model_dump() for x in obj["suggested_triage_steps"]
                 ]
             if "evidence" in obj:
                 obj["evidence"] = ArticleEvidence.from_any(obj["evidence"]).model_dump()
