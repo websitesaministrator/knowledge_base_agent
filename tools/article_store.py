@@ -20,6 +20,7 @@ STORE_FILE = Path("data/articles_store.json")
 class ResolutionRecord(BaseModel):
     fix_id: int = Field(description="Standard fix ID number referenced in tickets")
     ticket_count: int = Field(default=1, description="Number of tickets resolved using this fix ID")
+    other_categories_count: int = Field(default=0, description="Number of other distinct categories citing this fix ID")
     notes: str = Field(default="", description="Observations regarding fix distribution across categories")
 
     @classmethod
