@@ -5,7 +5,7 @@
     "title": "Billing issues (variant 3): recurring tickets",
     "version": 1,
     "status": "published",
-    "what_we_see": "The ticket summaries for this cluster contain only templated wording such as 'User reported billing while using X', without specific symptom details. Ticket data reveals a mismatch between product mentioned in summaries versus product column in 242 out of 300 rows.",
+    "what_we_see": "Ticket summaries for this cluster contain only the templated category wording, such as 'User reported billing while using X', providing no symptom detail. A notable issue is present with 242 out of 300 tickets having a mismatch between the product mentioned in the summary and the product column, indicative of a documentation or reporting discrepancy. Sample ticket IDs from this cluster include TKT-00046 and TKT-00244.",
     "products": [
       {
         "name": "InsightHub",
@@ -51,82 +51,81 @@
         "fix_id": 1,
         "ticket_count": 1,
         "other_categories_count": 5,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 4,
         "ticket_count": 1,
         "other_categories_count": 7,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 5,
         "ticket_count": 1,
         "other_categories_count": 7,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 6,
         "ticket_count": 1,
         "other_categories_count": 6,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 7,
         "ticket_count": 1,
         "other_categories_count": 7,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 8,
         "ticket_count": 2,
         "other_categories_count": 6,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 12,
         "ticket_count": 1,
         "other_categories_count": 6,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 19,
         "ticket_count": 1,
         "other_categories_count": 6,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       },
       {
         "fix_id": 20,
         "ticket_count": 1,
         "other_categories_count": 4,
-        "notes": "Fix procedures not included in ticket data."
+        "notes": "Fix procedures are not in data."
       }
     ],
     "suggested_triage_steps": [
       {
-        "text": "AI-suggested, unverified: Gather user's detailed description of the billing issue context and screenshots if possible",
+        "text": "Review user account and billing history for anomalies",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "AI-suggested, unverified: Verify the product actually in use against what is noted in ticket summary",
+        "text": "Verify product usage logs to match them against reported issues",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "AI-suggested, unverified: Review ticket history for prior issues reported by the same user or from the same product",
+        "text": "Check recent patches or updates applied to the products involved",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "AI-suggested, unverified: Check KB articles for any similar issues and associated resolutions",
+        "text": "Consult previous similar tickets in this cluster for guidance",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "AI-suggested, unverified: Escalate to SME if unable to match issue with known resolutions",
+        "text": "Escalate to an SME if repetitive patterns are found without resolution",
         "label": "AI-suggested, unverified"
       }
     ],
     "needs_sme_input": [
-      "Confirm whether there are additional undocumented resolution procedures for the listed fix IDs in this cluster",
-      "Clarify any specific diagnostic steps that should be performed when ticket summaries have mismatched product titles"
+      "Confirm standard fix procedures for each fix ID."
     ],
     "evidence": {
       "ticket_ids": [
@@ -147,15 +146,15 @@
     "verifier_unresolved": false,
     "open_issues": [],
     "lifecycle_proposal": null,
-    "created_at": "2026-10-20T08:26:35.425734+00:00"
+    "created_at": "2026-10-20T10:02:03.144597+00:00"
   },
   "KB-configuration-configuration-variant-1-v1": {
     "article_id": "KB-configuration-configuration-variant-1-v1",
     "cluster_id": "Configuration|Configuration - variant 1",
     "title": "Configuration issues (variant 1): recurring tickets",
     "version": 1,
-    "status": "pending_review",
-    "what_we_see": "Ticket summaries contain only templated category wording ('User reported configuration while using X') with NO symptom detail. There is a notable issue with product mismatches; mismatches occur in 242 out of 300 cases. Tickets such as TKT-00040 and TKT-00056 demonstrate this pattern.",
+    "status": "published",
+    "what_we_see": "Ticket summaries contain only templated category wording such as 'User reported configuration while using X' with no symptom detail provided. Notably, there is a mismatch between the products mentioned in ticket summaries and the product column in 242 out of 300 cases, indicating a potential data quality issue. For example, ticket TKT-00056 involved DataConnect but the summary mentioned AnalyticsPro.",
     "products": [
       {
         "name": "PlatformX",
@@ -201,72 +200,71 @@
         "fix_id": 1,
         "ticket_count": 2,
         "other_categories_count": 5,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 7,
         "ticket_count": 2,
         "other_categories_count": 7,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 10,
         "ticket_count": 1,
         "other_categories_count": 5,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 14,
         "ticket_count": 2,
         "other_categories_count": 5,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 15,
         "ticket_count": 2,
         "other_categories_count": 7,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 17,
         "ticket_count": 1,
         "other_categories_count": 6,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       },
       {
         "fix_id": 20,
         "ticket_count": 1,
         "other_categories_count": 4,
-        "notes": "Fix procedures are not in data."
+        "notes": "No fix procedures provided."
       }
     ],
     "suggested_triage_steps": [
       {
-        "text": "Collect information from the user about the observed configuration issues, including specific actions being performed when the issue was noticed.",
+        "text": "AI-suggested, unverified: Request users to provide any specific configurations they attempted before encountering the issue.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Review prior tickets within this cluster for similar summaries and check for any noted patterns.",
+        "text": "AI-suggested, unverified: Verify and compare the ticket summaries with the product details to check for discrepancies.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Verify if there are any ongoing incidents or outages with the listed products that could correlate with the issue.",
+        "text": "AI-suggested, unverified: Cross-reference similar past tickets to identify commonly effective fix IDs.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Consult historical resolutions and usage logs for the applied fixes, particularly looking at repeat applications of a specific fix ID.",
+        "text": "AI-suggested, unverified: Gather any user-provided logs or screenshots to support the configuration issue description.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Escalate to a Subject Matter Expert (SME) if the issue persists after initial data gathering, especially if a previously applied fix does not resolve the current tickets.",
+        "text": "AI-suggested, unverified: Escalate to a subject matter expert (SME) if the standard fixes do not resolve the issue.",
         "label": "AI-suggested, unverified"
       }
     ],
     "needs_sme_input": [
-      "Verify the actual resolution procedures for the mentioned fix IDs.",
-      "Confirm whether there are any undocumented procedures needed post-fix application.",
-      "Clarify if product mismatch reflects reporting errors or deeper systemic issues.",
-      "Determine if there are best practices when configuration mismatches occur across platforms."
+      "Verify correct procedure for identification of configuration issues when summaries lack specific details.",
+      "Determine the causes of discrepancies between product summary and actual product used, and implications.",
+      "Clarify intended use and application of fix IDs where data lacks procedural detail."
     ],
     "evidence": {
       "ticket_ids": [
@@ -288,6 +286,6 @@
     "verifier_unresolved": false,
     "open_issues": [],
     "lifecycle_proposal": null,
-    "created_at": "2026-10-20T08:30:32.897465+00:00"
+    "created_at": "2026-10-20T08:40:27.577497+00:00"
   }
 }

@@ -3,209 +3,381 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KB Lifecycle Agent · Autonomous Multi-Agent IT Knowledge Base</title>
+  <title>KB Lifecycle Agent · Autonomous Knowledge Base Management</title>
   <meta name="description" content="Autonomous multi-agent system managing the full lifecycle of an IT knowledge base: empirical audit, synthesis, deterministic verification, drift monitoring, and cited Q&A." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <!-- Top Navigation Header -->
-  <header class="app-header">
-    <div class="header-left">
-      <div class="brand-badge">
-        <span class="brand-pulse"></span>
-        <span class="brand-code">PS-03</span>
+  <!-- Sunset Hero Header Section -->
+  <header class="hero-header">
+    <div class="hero-topbar">
+      <div class="brand-monogram">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span class="brand-name">KB Agent</span>
       </div>
-      <div class="brand-info">
-        <h1 class="brand-title">KB Lifecycle Agent <span class="badge-tag">Autonomous Multi-Agent</span></h1>
-        <p class="brand-subtitle">atomcamp National AI Hackathon Finale 2026 · Source-Grounded Support Lifecycle</p>
+
+      <!-- Centered Floating Pill Navigation (Matching Reference UI Style) -->
+      <nav class="pill-nav">
+        <button class="nav-pill active" onclick="switchTab('sweep')" id="btn-tab-sweep">Overview &amp; Sweep</button>
+        <button class="nav-pill" onclick="switchTab('clusters')" id="btn-tab-clusters">Clusters &amp; Priorities</button>
+        <button class="nav-pill" onclick="switchTab('kb')" id="btn-tab-kb">Synthesized KB</button>
+        <button class="nav-pill" onclick="switchTab('lifecycle')" id="btn-tab-lifecycle">Replay Drift</button>
+        <button class="nav-pill" onclick="switchTab('review')" id="btn-tab-review">Review Queue <span class="nav-count" id="badge-review-count">0</span></button>
+        <button class="nav-pill" onclick="switchTab('qa')" id="btn-tab-qa">Ask KB</button>
+        <button class="nav-pill" onclick="switchTab('audit')" id="btn-tab-audit">Audit Trail</button>
+      </nav>
+
+      <div class="topbar-right">
+        <button class="icon-circle-btn" onclick="switchTab('review')" title="Pending Proposals">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+        <div class="profile-avatar" title="PS-03 Auto-Agent System">
+          <span>AI</span>
+        </div>
       </div>
     </div>
 
-    <div class="header-center">
-      <div class="system-status-pill">
-        <span class="status-indicator live" id="systemIndicator"></span>
-        <span id="systemStatusText">Pipeline Ready · 24 Clusters Monitored</span>
+    <!-- Hero Content Banner (Matching Reference Image) -->
+    <div class="hero-content">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Track empirical support patterns, verified KB synthesis, and replay drift</p>
+        <h1 class="hero-title">Knowledge Base Lifecycle</h1>
+        <div class="hero-actions">
+          <button class="btn-pill-solid" onclick="runAutonomousSweep()">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            <span>Run Autonomous Sweep</span>
+          </button>
+          <button class="btn-pill-outline" onclick="switchTab('qa')">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span>Query Knowledge Base</span>
+          </button>
+          <button class="btn-pill-ghost" onclick="resetState()" title="Reset temporary state">
+            <svg class="btn-svg-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 16h5v5"/>
+            </svg>
+            <span>Reset</span>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="header-actions">
-      <button class="btn btn-primary" id="btnQuickSweep" onclick="runAutonomousSweep()">
-        <span class="btn-icon">⚡</span> Run Autonomous Sweep
-      </button>
-      <button class="btn btn-ghost" onclick="resetState()" title="Reset temporary demo state">
-        Reset
-      </button>
-    </div>
-  </header>
-
-  <!-- Metric Strip -->
-  <section class="metrics-strip">
-    <div class="metric-card">
-      <div class="metric-label">Support Tickets Audited</div>
-      <div class="metric-value">300 <span class="metric-sub">157 Base / 143 Replay</span></div>
-      <div class="metric-meta">Empirical Evidence Grounding</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-label">Ticket Clusters</div>
-      <div class="metric-value">24 <span class="metric-sub">Category|Subcategory</span></div>
-      <div class="metric-meta">Deterministic Multi-Factor Scoring</div>
-    </div>
-    <div class="metric-card highlight-warning">
-      <div class="metric-label">Summary Mismatch Rate</div>
-      <div class="metric-value">80.7% <span class="metric-sub">242/300 Rows</span></div>
-      <div class="metric-meta">Audited Data Quality Inconsistency</div>
-    </div>
-    <div class="metric-card highlight-success">
-      <div class="metric-label">Synthesized Articles</div>
-      <div class="metric-value" id="kpi-articles-count">1 <span class="metric-sub">100% Verified</span></div>
-      <div class="metric-meta">Dual-Layer Deterministic Verification</div>
-    </div>
-    <div class="metric-card highlight-info">
-      <div class="metric-label">Replay Drift Decisions</div>
-      <div class="metric-value">18 <span class="metric-sub">UPDATE</span> · 3 <span class="metric-sub">KEEP</span> · 3 <span class="metric-sub">RETIRE</span></div>
-      <div class="metric-meta">Streaming Replay Monitoring</div>
-    </div>
-  </section>
-
-  <!-- Visual Interactive Agent Pipeline DAG -->
-  <section class="pipeline-section">
-    <div class="pipeline-header">
-      <span class="pipeline-title">Agent Execution Architecture (Orchestrator-Directed)</span>
-      <span class="pipeline-legend">Tools Grounded · Deterministic Pre-Checks · Self-Correction Loop</span>
-    </div>
-    <div class="pipeline-flow">
-      <div class="agent-node" id="node-auditor">
-        <div class="agent-node-badge">Step 1</div>
-        <div class="agent-node-icon">📊</div>
-        <div class="agent-node-name">Data Auditor</div>
-        <div class="agent-node-sub">Quality & Fix Map</div>
-        <div class="agent-node-state" id="state-auditor">READY</div>
-      </div>
-      <div class="node-arrow">➔</div>
-      <div class="agent-node" id="node-analyst">
-        <div class="agent-node-badge">Step 2</div>
-        <div class="agent-node-icon">🎯</div>
-        <div class="agent-node-name">Pattern Analyst</div>
-        <div class="agent-node-sub">Priority Scoring</div>
-        <div class="agent-node-state" id="state-analyst">READY</div>
-      </div>
-      <div class="node-arrow">➔</div>
-      <div class="agent-node" id="node-author">
-        <div class="agent-node-badge">Step 3</div>
-        <div class="agent-node-icon">✍️</div>
-        <div class="agent-node-name">KB Author</div>
-        <div class="agent-node-sub">Structured Drafts</div>
-        <div class="agent-node-state" id="state-author">READY</div>
-      </div>
-      <div class="node-arrow">➔</div>
-      <div class="agent-node active-highlight" id="node-verifier">
-        <div class="agent-node-badge">Step 4</div>
-        <div class="agent-node-icon">🛡️</div>
-        <div class="agent-node-name">Code + LLM Verifier</div>
-        <div class="agent-node-sub">Self-Correction Loop</div>
-        <div class="agent-node-state" id="state-verifier">READY</div>
-      </div>
-      <div class="node-arrow">➔</div>
-      <div class="agent-node" id="node-lifecycle">
-        <div class="agent-node-badge">Step 5</div>
-        <div class="agent-node-icon">🔄</div>
-        <div class="agent-node-name">Lifecycle Monitor</div>
-        <div class="agent-node-sub">Replay Drift Detection</div>
-        <div class="agent-node-state" id="state-lifecycle">READY</div>
-      </div>
-      <div class="node-arrow">➔</div>
-      <div class="agent-node" id="node-qa">
-        <div class="agent-node-badge">Step 6</div>
-        <div class="agent-node-icon">💬</div>
-        <div class="agent-node-name">Q&A Serving</div>
-        <div class="agent-node-sub">Cited Assistant</div>
-        <div class="agent-node-state" id="state-qa">READY</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Viewports with Tabs -->
-  <main class="app-main">
-    <nav class="main-tabs">
-      <button class="tab-btn active" onclick="switchTab('sweep')" id="btn-tab-sweep">
-        <span class="tab-icon">🚀</span> Autonomous Sweep
-      </button>
-      <button class="tab-btn" onclick="switchTab('clusters')" id="btn-tab-clusters">
-        <span class="tab-icon">📊</span> 24 Clusters & Scores
-      </button>
-      <button class="tab-btn" onclick="switchTab('kb')" id="btn-tab-kb">
-        <span class="tab-icon">📚</span> Synthesized Articles
-      </button>
-      <button class="tab-btn" onclick="switchTab('lifecycle')" id="btn-tab-lifecycle">
-        <span class="tab-icon">🔄</span> Lifecycle Monitor (Replay)
-      </button>
-      <button class="tab-btn" onclick="switchTab('review')" id="btn-tab-review">
-        <span class="tab-icon">🛡️</span> Human Review Queue <span class="badge-pill" id="badge-review-count">0</span>
-      </button>
-      <button class="tab-btn" onclick="switchTab('qa')" id="btn-tab-qa">
-        <span class="tab-icon">💬</span> Ask Knowledge Base
-      </button>
-      <button class="tab-btn" onclick="switchTab('audit')" id="btn-tab-audit">
-        <span class="tab-icon">📜</span> Live Audit Trail
-      </button>
-    </nav>
-
-    <!-- Tab 1: Autonomous Sweep -->
-    <section class="tab-pane active" id="pane-sweep">
-      <div class="pane-grid">
-        <div class="pane-column-left">
-          <div class="card">
-            <div class="card-header">
-              <h3>Orchestrator Sweep Control</h3>
-              <span class="badge-status">Autonomous</span>
+      <!-- 3D Stacked Frosted Glass Card (Matching VISA Card from Reference Image) -->
+      <div class="hero-right">
+        <div class="glass-card-stack">
+          <div class="glass-card-back"></div>
+          <div class="glass-card">
+            <div class="glass-card-top">
+              <div class="glass-sim-digits">•••• 2026 &nbsp;&nbsp; 05 / 26</div>
+              <div class="glass-badge">AUTONOMOUS AI</div>
             </div>
-            <div class="card-body">
-              <p class="description-text">
-                Dispatch the master Orchestrator to execute the full multi-agent lifecycle loop: empirical data quality check, cluster scoring, author synthesis, deterministic verifier checks, streaming replay drift evaluation, and Q&A verification.
-              </p>
-              <div class="form-group">
-                <label for="selectCluster">Target Candidate Cluster:</label>
-                <select id="selectCluster" class="form-select">
-                  <option value="Billing|Billing - variant 3">Billing | Billing - variant 3 (Priority Rank #1)</option>
-                  <option value="Configuration|Configuration - variant 1">Configuration | Configuration - variant 1</option>
-                  <option value="Access Control|Access Control - variant 1">Access Control | Access Control - variant 1</option>
-                  <option value="Data Export|Data Export - variant 3">Data Export | Data Export - variant 3</option>
-                </select>
+            <div class="glass-card-mid">
+              <div class="glass-metric-label">System Verification Invariant</div>
+              <div class="glass-metric-value">100% Grounded</div>
+            </div>
+            <div class="glass-card-bottom">
+              <div class="trend-pill">
+                <span class="trend-icon">↗</span> 18 Drift Updates Detected in Replay
               </div>
-              <button class="btn btn-primary btn-block" id="btnRunSweep" onclick="startSweep()">
-                <span class="btn-icon">▶</span> Launch Autonomous Lifecycle Sweep
-              </button>
-            </div>
-          </div>
-
-          <div class="card mt-4">
-            <div class="card-header">
-              <h3>Self-Correction Verification Invariant</h3>
-            </div>
-            <div class="card-body">
-              <ul class="feature-bullets">
-                <li><strong>Deterministic Code Checks Run First:</strong> Product counts, severity counts, fix categories counts, and ticket IDs are verified with pure Python before LLM review.</li>
-                <li><strong>Self-Correction Loop:</strong> When Verifier returns <code>REVISE</code>, exact ground-truth values are fed back to the Author for automated correction.</li>
-                <li><strong>Safe Triage Steps:</strong> Enforces non-destructive troubleshooting steps (no system resets or causal claims).</li>
-              </ul>
+              <div class="glass-sub-meta">300 Support Tickets Audited</div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <div class="pane-column-right">
-          <div class="card terminal-card">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="terminal-title">LIVE MULTI-AGENT EXECUTION STREAM</div>
-              <div class="terminal-badge" id="terminalStatus">READY</div>
+  <!-- Main Body Content Area (Warm Canvas with Crisp Pure-White 28px Cards) -->
+  <main class="dashboard-body">
+
+    <!-- Top Showcase Grid: Left Overview Card (58%) + Right 2x2 Metric Cards (42%) -->
+    <section class="hero-showcase-grid">
+      <!-- Left: Big Overview Card with Bar Visualizer (Matching Overview in Reference Image) -->
+      <div class="white-card overview-card">
+        <div class="card-top-row">
+          <div>
+            <div class="card-eyebrow">Priority Synthesis Target</div>
+            <div class="overview-metric" id="overviewClusterName">Billing · variant 3</div>
+          </div>
+          <div class="card-controls">
+            <select id="selectCluster" class="pill-select" onchange="updateOverviewCluster()">
+              <option value="Billing|Billing - variant 3">Billing · variant 3 (Priority Rank #1)</option>
+              <option value="Configuration|Configuration - variant 1">Configuration · variant 1</option>
+              <option value="Access Control|Access Control - variant 1">Access Control · variant 1</option>
+              <option value="Data Export|Data Export - variant 3">Data Export · variant 3</option>
+            </select>
+            <button class="icon-circle-btn-subtle" title="Cluster Details" onclick="switchTab('clusters')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="overview-substat-row">
+          <div class="overview-score-box">
+            <span class="score-number">0.76<span class="score-decimal">7</span></span>
+            <span class="score-tag">Rank #1 Priority Score</span>
+          </div>
+          <div class="overview-mini-trend">
+            <span class="trend-pill-sm positive">↗ 90% Repetitive Rate</span>
+            <span class="trend-meta-text">10 tickets in baseline window</span>
+          </div>
+        </div>
+
+        <!-- Interactive Bar Visualizer (Like the chart in reference image) -->
+        <div class="chart-visualizer">
+          <div class="chart-tooltip-bubble">
+            <div class="bubble-title-row">
+              <span class="bubble-val">Score: 0.767</span>
+              <span class="bubble-badge">↗ Top Priority</span>
             </div>
-            <div class="terminal-body" id="sweepTerminal">
-              <div class="terminal-line text-muted">[System] Ready to run lifecycle sweep. Click 'Launch Autonomous Lifecycle Sweep' to begin.</div>
+            <span class="bubble-sub">for Billing · variant 3</span>
+            <div class="bubble-pointer-dot"></div>
+          </div>
+          <div class="bars-container" id="overviewBarsContainer">
+            <!-- Visual bars generated dynamically via app.js -->
+          </div>
+          <div class="chart-timeline-labels">
+            <span>Access Control</span>
+            <span>Billing</span>
+            <span>Configuration</span>
+            <span>Data Export</span>
+            <span>Integration</span>
+            <span>Login</span>
+            <span>Performance</span>
+            <span>Report Error</span>
+          </div>
+        </div>
+
+        <div class="sweep-action-footer">
+          <button class="btn-primary-action" id="btnRunSweep" onclick="startSweep()">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Launch Autonomous Lifecycle Sweep</span>
+          </button>
+          <div class="sweep-meta-hint">
+            Auditor &rarr; Analyst &rarr; Author &rarr; Verifier &rarr; Monitor
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: 2x2 Grid of 4 Crisp Rounded Metric Cards (Matching Groceries / Clothes in Reference) -->
+      <div class="kpi-quad-grid">
+        <!-- Metric 1: Total Evidence -->
+        <div class="kpi-card" onclick="switchTab('clusters')">
+          <div class="kpi-header">
+            <span class="kpi-title">Total Evidence</span>
+            <div class="kpi-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value">
+            <span class="num-large">300</span>
+            <span class="num-suffix">Tickets</span>
+          </div>
+          <div class="kpi-trend positive">
+            <span class="trend-arrow">↗</span> 157 Baseline · 143 Replay
+          </div>
+        </div>
+
+        <!-- Metric 2: Empirical Clusters -->
+        <div class="kpi-card" onclick="switchTab('clusters')">
+          <div class="kpi-header">
+            <span class="kpi-title">Empirical Clusters</span>
+            <div class="kpi-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value">
+            <span class="num-large">24</span>
+            <span class="num-suffix">Clusters</span>
+          </div>
+          <div class="kpi-trend neutral">
+            <span class="trend-arrow">✓</span> Multi-Factor Scored (0-1)
+          </div>
+        </div>
+
+        <!-- Metric 3: Product Mismatch -->
+        <div class="kpi-card highlight-card" onclick="switchTab('clusters')">
+          <div class="kpi-header">
+            <span class="kpi-title">Product Mismatch</span>
+            <div class="kpi-icon-wrap warning">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value">
+            <span class="num-large">80.7</span><span class="num-suffix">%</span>
+          </div>
+          <div class="kpi-trend warning">
+            <span class="trend-arrow">↗</span> 242/300 Column Quirks
+          </div>
+        </div>
+
+        <!-- Metric 4: Replay Drift Decisions -->
+        <div class="kpi-card" onclick="switchTab('lifecycle')">
+          <div class="kpi-header">
+            <span class="kpi-title">Replay Drift Decisions</span>
+            <div class="kpi-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+                <path d="M16 16h5v5"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="kpi-value">
+            <span class="num-large" id="kpi-drift-count">18</span>
+            <span class="num-suffix">Updates</span>
+          </div>
+          <div class="kpi-trend positive">
+            <span class="trend-arrow">●</span> 3 Keep · 3 Retire
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Stepper Pipeline (Sleek Horizontal Flow) -->
+    <section class="stepper-card">
+      <div class="stepper-header">
+        <span class="stepper-title">Autonomous Agent Pipeline Flow</span>
+        <span class="stepper-meta">Orchestrator-Directed · Deterministic Fact-Checks · Self-Correction Loop</span>
+      </div>
+      <div class="stepper-track">
+        <div class="step-item" id="node-auditor">
+          <div class="step-circle">1</div>
+          <div class="step-details">
+            <div class="step-name">Data Auditor</div>
+            <div class="step-desc">Quality &amp; Fix Map</div>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="node-analyst">
+          <div class="step-circle">2</div>
+          <div class="step-details">
+            <div class="step-name">Pattern Analyst</div>
+            <div class="step-desc">Deterministic Scoring</div>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="node-author">
+          <div class="step-circle">3</div>
+          <div class="step-details">
+            <div class="step-name">KB Author</div>
+            <div class="step-desc">Structured Synthesis</div>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item active" id="node-verifier">
+          <div class="step-circle">4</div>
+          <div class="step-details">
+            <div class="step-name">Code + LLM Verifier</div>
+            <div class="step-desc">Self-Correction Loop</div>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="node-lifecycle">
+          <div class="step-circle">5</div>
+          <div class="step-details">
+            <div class="step-name">Lifecycle Monitor</div>
+            <div class="step-desc">Replay Drift Signals</div>
+          </div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="node-qa">
+          <div class="step-circle">6</div>
+          <div class="step-details">
+            <div class="step-name">Q&amp;A Serving</div>
+            <div class="step-desc">Cited Assistant</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 1: Overview & Sweep Viewport (Execution Terminal + Live Articles) -->
+    <section class="content-pane active" id="pane-sweep">
+      <div class="two-col-grid">
+        <!-- Left: Execution Log Terminal (Warm Charcoal Surface with Crisp JetBrains Mono) -->
+        <div class="white-card terminal-container">
+          <div class="card-top-row border-bottom">
+            <div class="terminal-badge-title">
+              <span class="pulse-dot"></span>
+              <span>LIVE MULTI-AGENT EXECUTION STREAM</span>
+            </div>
+            <span class="status-pill-sub" id="terminalStatus">READY</span>
+          </div>
+          <div class="modern-terminal-body" id="sweepTerminal">
+            <div class="term-line text-faint">[System] Master Orchestrator initialized. Select a candidate cluster and launch the sweep to begin.</div>
+          </div>
+        </div>
+
+        <!-- Right: Recent Articles & Grounded Intelligence Preview -->
+        <div class="white-card quick-kb-preview-card">
+          <div class="card-top-row border-bottom">
+            <div>
+              <h2 class="section-heading">Verified KB Articles</h2>
+              <p class="section-subheading">Articles generated and verified by the autonomous loop</p>
+            </div>
+            <button class="btn-pill-sub" onclick="switchTab('kb')">View All &rarr;</button>
+          </div>
+          <div class="quick-article-content">
+            <div class="featured-article-box" onclick="switchTab('kb')">
+              <div class="feat-badge-row">
+                <span class="pill-chip verified">✓ VERIFIED &amp; FACT-CHECKED</span>
+                <span class="pill-chip">Billing</span>
+              </div>
+              <h3 class="feat-title">Billing Dispute and Invoice Discrepancy Resolution Protocol</h3>
+              <p class="feat-desc">Empirical baseline article synthesized from 10 support tickets. Verified across 2 products with deterministic code checks.</p>
+              <div class="feat-meta-row">
+                <span>10 Tickets</span>
+                <span>•</span>
+                <span>2 Products</span>
+                <span>•</span>
+                <span>3 Safe Triage Steps</span>
+              </div>
+            </div>
+
+            <div class="quick-qa-launch-box">
+              <div class="quick-qa-text">
+                <div class="quick-qa-title">Query the Verified Knowledge Base</div>
+                <div class="quick-qa-sub">Ask support questions with confidence scores and exact citations.</div>
+              </div>
+              <button class="btn-primary-action sm" onclick="switchTab('qa')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Ask Question</span>
+              </button>
             </div>
           </div>
         </div>
@@ -213,24 +385,24 @@
     </section>
 
     <!-- Tab 2: 24 Clusters & Scores -->
-    <section class="tab-pane" id="pane-clusters">
-      <div class="card">
-        <div class="card-header flex-between">
+    <section class="content-pane" id="pane-clusters">
+      <div class="white-card">
+        <div class="card-top-row border-bottom pb-4">
           <div>
-            <h3>Empirical Ticket Clusters & Deterministic Priority Scores</h3>
-            <p class="card-subtitle">All 24 clusters derived from 300 support tickets scored by volume, repetition rate, fix inconsistency, and severity.</p>
+            <h2 class="section-heading">Empirical Ticket Clusters &amp; Priority Scores</h2>
+            <p class="section-subheading">All 24 clusters derived from support tickets scored by volume, repetition rate, distinct fixes, and severity.</p>
           </div>
-          <div class="filter-controls">
-            <input type="text" id="clusterSearch" class="form-input" placeholder="Filter clusters..." oninput="filterClusterTable()" />
+          <div class="search-box">
+            <input type="text" id="clusterSearch" class="clean-input" placeholder="Search clusters..." oninput="filterClusterTable()" />
           </div>
         </div>
-        <div class="table-responsive">
-          <table class="data-table" id="clustersTable">
+        <div class="table-wrap">
+          <table class="modern-table" id="clustersTable">
             <thead>
               <tr>
                 <th>Rank</th>
-                <th>Cluster ID</th>
-                <th>Volume (Base)</th>
+                <th>Cluster Category &amp; Variant</th>
+                <th>Volume</th>
                 <th>Repetitive Rate</th>
                 <th>Distinct Fixes</th>
                 <th>Severity Mix</th>
@@ -239,7 +411,7 @@
               </tr>
             </thead>
             <tbody id="clustersTableBody">
-              <tr><td colspan="8" class="text-center text-muted">Loading cluster scores...</td></tr>
+              <tr><td colspan="8" class="text-center text-muted py-6">Loading cluster scores...</td></tr>
             </tbody>
           </table>
         </div>
@@ -247,93 +419,109 @@
     </section>
 
     <!-- Tab 3: Synthesized Articles -->
-    <section class="tab-pane" id="pane-kb">
-      <div class="card">
-        <div class="card-header flex-between">
+    <section class="content-pane" id="pane-kb">
+      <div class="white-card">
+        <div class="card-top-row border-bottom pb-4">
           <div>
-            <h3>Synthesized & Verified Knowledge Base Articles</h3>
-            <p class="card-subtitle">Articles drafted by KB Author and fact-checked by Deterministic Verifier from empirical ticket evidence.</p>
+            <h2 class="section-heading">Synthesized &amp; Verified Knowledge Base</h2>
+            <p class="section-subheading">Evidence-grounded articles fact-checked by Deterministic Verifier code checks against Pandas ground truth.</p>
           </div>
-          <button class="btn btn-secondary" onclick="loadArticles()">↻ Refresh Articles</button>
+          <button class="btn-pill-sub" onclick="loadArticles()">↻ Refresh Articles</button>
         </div>
-        <div class="articles-grid" id="articlesGrid">
-          <div class="empty-state">Loading articles...</div>
+        <div class="articles-clean-grid" id="articlesGrid">
+          <div class="empty-state">Loading synthesized articles...</div>
         </div>
       </div>
     </section>
 
     <!-- Tab 4: Lifecycle Monitor (Replay Drift) -->
-    <section class="tab-pane" id="pane-lifecycle">
-      <div class="card">
-        <div class="card-header flex-between">
+    <section class="content-pane" id="pane-lifecycle">
+      <div class="white-card">
+        <div class="card-top-row border-bottom pb-4">
           <div>
-            <h3>Lifecycle Monitor: Streaming Replay Window Drift Analysis</h3>
-            <p class="card-subtitle">Evaluates tickets created &ge; 2026-05-01 (143 tickets) to flag published articles as KEEP, UPDATE, or RETIRE.</p>
+            <h2 class="section-heading">Lifecycle Monitor: Streaming Replay Window Drift</h2>
+            <p class="section-subheading">Evaluates tickets created &ge; 2026-05-01 (143 tickets) against baseline articles to propose KEEP, UPDATE, or RETIRE.</p>
           </div>
-          <div class="decision-filters">
-            <button class="btn-filter active" onclick="filterSignals('ALL')">All (24)</button>
-            <button class="btn-filter update-btn" onclick="filterSignals('UPDATE')">UPDATE (18)</button>
-            <button class="btn-filter keep-btn" onclick="filterSignals('KEEP')">KEEP (3)</button>
-            <button class="btn-filter retire-btn" onclick="filterSignals('RETIRE')">RETIRE (3)</button>
+          <div class="filter-pill-group">
+            <button class="filter-pill active" onclick="filterSignals('ALL')">All (24)</button>
+            <button class="filter-pill update" onclick="filterSignals('UPDATE')">UPDATE (18)</button>
+            <button class="filter-pill keep" onclick="filterSignals('KEEP')">KEEP (3)</button>
+            <button class="filter-pill retire" onclick="filterSignals('RETIRE')">RETIRE (3)</button>
           </div>
         </div>
-        <div class="signals-grid" id="signalsGrid">
+        <div class="signals-clean-grid" id="signalsGrid">
           <div class="empty-state">Loading lifecycle signals...</div>
         </div>
       </div>
     </section>
 
     <!-- Tab 5: Human Review Queue -->
-    <section class="tab-pane" id="pane-review">
-      <div class="card">
-        <div class="card-header">
-          <h3>Human-in-the-Loop Review Queue</h3>
-          <p class="card-subtitle">SME approval interface for proposals generated by the Lifecycle Monitor or flagged articles.</p>
+    <section class="content-pane" id="pane-review">
+      <div class="white-card">
+        <div class="card-top-row border-bottom pb-4">
+          <div>
+            <h2 class="section-heading">Human-in-the-Loop Review Queue</h2>
+            <p class="section-subheading">SME approval interface for proposals generated by the Lifecycle Monitor. All actions are logged to the tamper-evident audit trail.</p>
+          </div>
         </div>
-        <div class="review-queue-list" id="reviewQueueList">
+        <div class="review-clean-list" id="reviewQueueList">
           <div class="empty-state">No pending proposals awaiting review.</div>
         </div>
       </div>
     </section>
 
     <!-- Tab 6: Ask Knowledge Base -->
-    <section class="tab-pane" id="pane-qa">
-      <div class="card qa-card">
-        <div class="card-header">
-          <h3>Knowledge Base Q&A Assistant</h3>
-          <p class="card-subtitle">Serves cited, confidence-scored answers derived strictly from verified KB articles and recorded fixes.</p>
+    <section class="content-pane" id="pane-qa">
+      <div class="white-card chat-card-container">
+        <div class="card-top-row border-bottom pb-3">
+          <div>
+            <h2 class="section-heading">Knowledge Base Assistant</h2>
+            <p class="section-subheading">Cited, confidence-scored answers derived strictly from verified KB articles and recorded support fixes.</p>
+          </div>
         </div>
-        <div class="qa-chat-box" id="qaChatBox">
-          <div class="chat-message bot">
-            <div class="chat-avatar">🤖</div>
-            <div class="chat-content">
-              <strong>Knowledge Assistant</strong>
-              <p>Hello! I answer IT support inquiries using only verified KB articles and recorded resolution evidence. Try asking:</p>
-              <div class="suggestion-chips">
-                <button class="chip" onclick="askQuestion('How are recurring Billing variant 3 tickets resolved?')">"How are recurring Billing variant 3 tickets resolved?"</button>
-                <button class="chip" onclick="askQuestion('What products are affected in Billing issues and what fixes exist?')">"What products are affected in Billing issues and what fixes exist?"</button>
-                <button class="chip" onclick="askQuestion('What are safe triage steps for billing disputes?')">"What are safe triage steps for billing disputes?"</button>
+        <div class="chat-thread" id="qaChatBox">
+          <div class="chat-bubble bot">
+            <div class="chat-bubble-avatar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"></path>
+                <rect x="3" y="8" width="18" height="12" rx="2"></rect>
+                <line x1="8" y1="14" x2="8.01" y2="14"></line>
+                <line x1="16" y1="14" x2="16.01" y2="14"></line>
+              </svg>
+            </div>
+            <div class="chat-bubble-text">
+              <p><strong>Hello!</strong> I am your verified IT Knowledge Assistant. I answer questions using only evidence from verified KB articles. Try one of these questions:</p>
+              <div class="chips-row">
+                <button class="chat-chip" onclick="askQuestion('How are recurring Billing variant 3 tickets resolved?')">&ldquo;How are recurring Billing variant 3 tickets resolved?&rdquo;</button>
+                <button class="chat-chip" onclick="askQuestion('What products are affected in Billing issues and what fixes exist?')">&ldquo;What products are affected in Billing issues and what fixes exist?&rdquo;</button>
+                <button class="chat-chip" onclick="askQuestion('What are safe triage steps for billing disputes?')">&ldquo;What are safe triage steps for billing disputes?&rdquo;</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="qa-input-bar">
-          <input type="text" id="qaInput" class="form-input" placeholder="Ask a support question grounded in the KB..." onkeydown="handleQAKeyDown(event)" />
-          <button class="btn btn-primary" onclick="submitQA()">Send Query</button>
+        <div class="chat-input-bar">
+          <input type="text" id="qaInput" class="clean-chat-input" placeholder="Type a support question grounded in verified articles..." onkeydown="handleQAKeyDown(event)" />
+          <button class="btn-chat-send" onclick="submitQA()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Send Query</span>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- Tab 7: Audit Log -->
-    <section class="tab-pane" id="pane-audit">
-      <div class="card">
-        <div class="card-header flex-between">
+    <section class="content-pane" id="pane-audit">
+      <div class="white-card">
+        <div class="card-top-row border-bottom pb-4">
           <div>
-            <h3>Autonomous Agent Audit Trail</h3>
-            <p class="card-subtitle">Chronological, tamper-evident log recording every tool invocation, code check, and decision.</p>
+            <h2 class="section-heading">Autonomous Agent Audit Trail</h2>
+            <p class="section-subheading">Immutable, chronological log recording every tool invocation, deterministic code check, and decision.</p>
           </div>
-          <div class="audit-filters">
-            <select id="auditAgentFilter" class="form-select sm" onchange="renderAuditLog()">
+          <div class="audit-control-group">
+            <select id="auditAgentFilter" class="pill-select sm" onchange="renderAuditLog()">
               <option value="ALL">All Agents</option>
               <option value="Verifier">Verifier</option>
               <option value="KBAuthor">KBAuthor</option>
@@ -342,24 +530,24 @@
               <option value="Orchestrator">Orchestrator</option>
               <option value="human_reviewer">Human Reviewer</option>
             </select>
-            <button class="btn btn-ghost sm" onclick="loadAuditLog()">↻ Refresh Log</button>
+            <button class="btn-pill-sub" onclick="loadAuditLog()">↻ Refresh</button>
           </div>
         </div>
-        <div class="audit-log-container" id="auditLogList">
-          <div class="empty-state">Loading audit log...</div>
+        <div class="audit-trail-list" id="auditLogList">
+          <div class="empty-state">Loading audit trail...</div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Modal for Article Details -->
-  <div class="modal-overlay" id="articleModal" onclick="closeArticleModal(event)">
-    <div class="modal-card" onclick="event.stopPropagation()">
+  <!-- Article Detail Modal -->
+  <div class="modal-backdrop" id="articleModal" onclick="closeArticleModal(event)">
+    <div class="modal-dialog" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h3 id="modalArticleTitle">Article Details</h3>
-        <button class="modal-close" onclick="closeArticleModal()">&times;</button>
+        <h3 id="modalArticleTitle" class="modal-heading">Article Details</h3>
+        <button class="modal-close-btn" onclick="closeArticleModal()">&times;</button>
       </div>
-      <div class="modal-body" id="modalArticleContent">
+      <div class="modal-body-scroll" id="modalArticleContent">
         <!-- Content injected dynamically -->
       </div>
     </div>
