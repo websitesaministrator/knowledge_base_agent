@@ -95,3 +95,7 @@ def run_pattern_analyst(top_n: int = 6, max_steps: int = 15) -> dict:
         max_steps=max_steps,
     )
 
+
+# Alias for orchestrator
+analyze_patterns = run_pattern_analyst
+

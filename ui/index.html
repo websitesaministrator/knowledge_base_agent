@@ -3,213 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KB Lifecycle Agent — PS-03 Demo</title>
-  <meta name="description" content="AI-powered autonomous multi-agent system that manages the full lifecycle of an organization's knowledge base." />
+  <title>KB Lifecycle Agent · Autonomous Multi-Agent IT Knowledge Base</title>
+  <meta name="description" content="Autonomous multi-agent system managing the full lifecycle of an IT knowledge base: empirical audit, synthesis, deterministic verification, drift monitoring, and cited Q&A." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="14" stroke="url(#g1)" stroke-width="2"/>
-            <path d="M10 16h12M16 10v12" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round"/>
-            <defs>
-              <linearGradient id="g1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
-              </linearGradient>
-              <linearGradient id="g2" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div>
-          <div class="logo-title">KB Lifecycle Agent</div>
-          <div class="logo-sub">PS-03 · atomcamp AI Hackathon 2026</div>
-        </div>
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="brand-badge">
+        <span class="brand-pulse"></span>
+        <span class="brand-code">PS-03</span>
       </div>
-      <div class="header-status">
-        <span class="status-dot" id="statusDot"></span>
-        <span id="statusLabel">Idle</span>
+      <div class="brand-info">
+        <h1 class="brand-title">KB Lifecycle Agent <span class="badge-tag">Autonomous Multi-Agent</span></h1>
+        <p class="brand-subtitle">atomcamp National AI Hackathon Finale 2026 · Source-Grounded Support Lifecycle</p>
       </div>
+    </div>
+
+    <div class="header-center">
+      <div class="system-status-pill">
+        <span class="status-indicator live" id="systemIndicator"></span>
+        <span id="systemStatusText">Pipeline Ready · 24 Clusters Monitored</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-primary" id="btnQuickSweep" onclick="runAutonomousSweep()">
+        <span class="btn-icon">⚡</span> Run Autonomous Sweep
+      </button>
+      <button class="btn btn-ghost" onclick="resetState()" title="Reset temporary demo state">
+        Reset
+      </button>
     </div>
   </header>
 
-  <!-- Main layout -->
-  <main class="main">
-    <!-- Sidebar: Agent pipeline -->
-    <aside class="sidebar">
-      <div class="sidebar-title">Agent Pipeline</div>
-      <div class="agent-list" id="agentList">
-        <div class="agent-card" id="agent-ingestion">
-          <div class="agent-icon">⬆️</div>
-          <div class="agent-info">
-            <div class="agent-name">Ingestion</div>
-            <div class="agent-desc">Load &amp; embed 300 tickets</div>
-          </div>
-          <div class="agent-badge" id="badge-ingestion">–</div>
-        </div>
-        <div class="agent-connector"></div>
-        <div class="agent-card" id="agent-audit">
-          <div class="agent-icon">🔍</div>
-          <div class="agent-info">
-            <div class="agent-name">Audit</div>
-            <div class="agent-desc">Detect issues in KB</div>
-          </div>
-          <div class="agent-badge" id="badge-audit">–</div>
-        </div>
-        <div class="agent-connector"></div>
-        <div class="agent-card" id="agent-remediation">
-          <div class="agent-icon">🛠️</div>
-          <div class="agent-info">
-            <div class="agent-name">Remediation</div>
-            <div class="agent-desc">Draft fixes</div>
-          </div>
-          <div class="agent-badge" id="badge-remediation">–</div>
-        </div>
-        <div class="agent-connector"></div>
-        <div class="agent-card" id="agent-verifier">
-          <div class="agent-icon">✅</div>
-          <div class="agent-info">
-            <div class="agent-name">Verifier</div>
-            <div class="agent-desc">Self-correct proposals</div>
-          </div>
-          <div class="agent-badge" id="badge-verifier">–</div>
-        </div>
-        <div class="agent-connector"></div>
-        <div class="agent-card" id="agent-gap">
-          <div class="agent-icon">🧩</div>
-          <div class="agent-info">
-            <div class="agent-name">Gap Detector</div>
-            <div class="agent-desc">Find missing articles</div>
-          </div>
-          <div class="agent-badge" id="badge-gap">–</div>
-        </div>
+  <!-- Metric Strip -->
+  <section class="metrics-strip">
+    <div class="metric-card">
+      <div class="metric-label">Support Tickets Audited</div>
+      <div class="metric-value">300 <span class="metric-sub">157 Base / 143 Replay</span></div>
+      <div class="metric-meta">Empirical Evidence Grounding</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Ticket Clusters</div>
+      <div class="metric-value">24 <span class="metric-sub">Category|Subcategory</span></div>
+      <div class="metric-meta">Deterministic Multi-Factor Scoring</div>
+    </div>
+    <div class="metric-card highlight-warning">
+      <div class="metric-label">Summary Mismatch Rate</div>
+      <div class="metric-value">80.7% <span class="metric-sub">242/300 Rows</span></div>
+      <div class="metric-meta">Audited Data Quality Inconsistency</div>
+    </div>
+    <div class="metric-card highlight-success">
+      <div class="metric-label">Synthesized Articles</div>
+      <div class="metric-value" id="kpi-articles-count">1 <span class="metric-sub">100% Verified</span></div>
+      <div class="metric-meta">Dual-Layer Deterministic Verification</div>
+    </div>
+    <div class="metric-card highlight-info">
+      <div class="metric-label">Replay Drift Decisions</div>
+      <div class="metric-value">18 <span class="metric-sub">UPDATE</span> · 3 <span class="metric-sub">KEEP</span> · 3 <span class="metric-sub">RETIRE</span></div>
+      <div class="metric-meta">Streaming Replay Monitoring</div>
+    </div>
+  </section>
+
+  <!-- Visual Interactive Agent Pipeline DAG -->
+  <section class="pipeline-section">
+    <div class="pipeline-header">
+      <span class="pipeline-title">Agent Execution Architecture (Orchestrator-Directed)</span>
+      <span class="pipeline-legend">Tools Grounded · Deterministic Pre-Checks · Self-Correction Loop</span>
+    </div>
+    <div class="pipeline-flow">
+      <div class="agent-node" id="node-auditor">
+        <div class="agent-node-badge">Step 1</div>
+        <div class="agent-node-icon">📊</div>
+        <div class="agent-node-name">Data Auditor</div>
+        <div class="agent-node-sub">Quality & Fix Map</div>
+        <div class="agent-node-state" id="state-auditor">READY</div>
       </div>
-
-      <!-- Controls -->
-      <div class="controls">
-        <button class="btn btn-primary" id="btnSweep" onclick="startSweep()">
-          <span class="btn-icon">▶</span> Run Full Sweep
-        </button>
-        <button class="btn btn-ghost" onclick="resetSystem()">Reset</button>
+      <div class="node-arrow">➔</div>
+      <div class="agent-node" id="node-analyst">
+        <div class="agent-node-badge">Step 2</div>
+        <div class="agent-node-icon">🎯</div>
+        <div class="agent-node-name">Pattern Analyst</div>
+        <div class="agent-node-sub">Priority Scoring</div>
+        <div class="agent-node-state" id="state-analyst">READY</div>
       </div>
-    </aside>
-
-    <!-- Content area: Tabs -->
-    <section class="content">
-      <div class="tabs">
-        <button class="tab active" onclick="showTab('overview')" id="tab-overview">Overview</button>
-        <button class="tab" onclick="showTab('findings')" id="tab-findings">Findings</button>
-        <button class="tab" onclick="showTab('review')" id="tab-review">Review Queue</button>
-        <button class="tab" onclick="showTab('qa')" id="tab-qa">Ask KB</button>
-        <button class="tab" onclick="showTab('log')" id="tab-log">Audit Log</button>
+      <div class="node-arrow">➔</div>
+      <div class="agent-node" id="node-author">
+        <div class="agent-node-badge">Step 3</div>
+        <div class="agent-node-icon">✍️</div>
+        <div class="agent-node-name">KB Author</div>
+        <div class="agent-node-sub">Structured Drafts</div>
+        <div class="agent-node-state" id="state-author">READY</div>
       </div>
+      <div class="node-arrow">➔</div>
+      <div class="agent-node active-highlight" id="node-verifier">
+        <div class="agent-node-badge">Step 4</div>
+        <div class="agent-node-icon">🛡️</div>
+        <div class="agent-node-name">Code + LLM Verifier</div>
+        <div class="agent-node-sub">Self-Correction Loop</div>
+        <div class="agent-node-state" id="state-verifier">READY</div>
+      </div>
+      <div class="node-arrow">➔</div>
+      <div class="agent-node" id="node-lifecycle">
+        <div class="agent-node-badge">Step 5</div>
+        <div class="agent-node-icon">🔄</div>
+        <div class="agent-node-name">Lifecycle Monitor</div>
+        <div class="agent-node-sub">Replay Drift Detection</div>
+        <div class="agent-node-state" id="state-lifecycle">READY</div>
+      </div>
+      <div class="node-arrow">➔</div>
+      <div class="agent-node" id="node-qa">
+        <div class="agent-node-badge">Step 6</div>
+        <div class="agent-node-icon">💬</div>
+        <div class="agent-node-name">Q&A Serving</div>
+        <div class="agent-node-sub">Cited Assistant</div>
+        <div class="agent-node-state" id="state-qa">READY</div>
+      </div>
+    </div>
+  </section>
 
-      <!-- Overview tab -->
-      <div class="tab-content active" id="content-overview">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-value" id="stat-articles">–</div>
-            <div class="stat-label">KB Articles</div>
-          </div>
-          <div class="stat-card accent-orange">
-            <div class="stat-value" id="stat-findings">–</div>
-            <div class="stat-label">Issues Found</div>
-          </div>
-          <div class="stat-card accent-purple">
-            <div class="stat-value" id="stat-proposals">–</div>
-            <div class="stat-label">Proposals</div>
-          </div>
-          <div class="stat-card accent-green">
-            <div class="stat-value" id="stat-log">–</div>
-            <div class="stat-label">Audit Events</div>
-          </div>
-        </div>
+  <!-- Main Viewports with Tabs -->
+  <main class="app-main">
+    <nav class="main-tabs">
+      <button class="tab-btn active" onclick="switchTab('sweep')" id="btn-tab-sweep">
+        <span class="tab-icon">🚀</span> Autonomous Sweep
+      </button>
+      <button class="tab-btn" onclick="switchTab('clusters')" id="btn-tab-clusters">
+        <span class="tab-icon">📊</span> 24 Clusters & Scores
+      </button>
+      <button class="tab-btn" onclick="switchTab('kb')" id="btn-tab-kb">
+        <span class="tab-icon">📚</span> Synthesized Articles
+      </button>
+      <button class="tab-btn" onclick="switchTab('lifecycle')" id="btn-tab-lifecycle">
+        <span class="tab-icon">🔄</span> Lifecycle Monitor (Replay)
+      </button>
+      <button class="tab-btn" onclick="switchTab('review')" id="btn-tab-review">
+        <span class="tab-icon">🛡️</span> Human Review Queue <span class="badge-pill" id="badge-review-count">0</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('qa')" id="btn-tab-qa">
+        <span class="tab-icon">💬</span> Ask Knowledge Base
+      </button>
+      <button class="tab-btn" onclick="switchTab('audit')" id="btn-tab-audit">
+        <span class="tab-icon">📜</span> Live Audit Trail
+      </button>
+    </nav>
 
-        <div class="overview-body">
-          <div class="panel">
-            <div class="panel-header">
-              <span class="panel-title">Run Progress</span>
+    <!-- Tab 1: Autonomous Sweep -->
+    <section class="tab-pane active" id="pane-sweep">
+      <div class="pane-grid">
+        <div class="pane-column-left">
+          <div class="card">
+            <div class="card-header">
+              <h3>Orchestrator Sweep Control</h3>
+              <span class="badge-status">Autonomous</span>
             </div>
-            <div id="progressLog" class="progress-log">
-              <div class="empty-state">Run a sweep to see live progress →</div>
+            <div class="card-body">
+              <p class="description-text">
+                Dispatch the master Orchestrator to execute the full multi-agent lifecycle loop: empirical data quality check, cluster scoring, author synthesis, deterministic verifier checks, streaming replay drift evaluation, and Q&A verification.
+              </p>
+              <div class="form-group">
+                <label for="selectCluster">Target Candidate Cluster:</label>
+                <select id="selectCluster" class="form-select">
+                  <option value="Billing|Billing - variant 3">Billing | Billing - variant 3 (Priority Rank #1)</option>
+                  <option value="Configuration|Configuration - variant 1">Configuration | Configuration - variant 1</option>
+                  <option value="Access Control|Access Control - variant 1">Access Control | Access Control - variant 1</option>
+                  <option value="Data Export|Data Export - variant 3">Data Export | Data Export - variant 3</option>
+                </select>
+              </div>
+              <button class="btn btn-primary btn-block" id="btnRunSweep" onclick="startSweep()">
+                <span class="btn-icon">▶</span> Launch Autonomous Lifecycle Sweep
+              </button>
             </div>
           </div>
-          <div class="panel">
-            <div class="panel-header"><span class="panel-title">System</span></div>
-            <div class="info-list">
-              <div class="info-item"><span>Dataset</span><span class="mono">300 tickets</span></div>
-              <div class="info-item"><span>Model</span><span class="mono">GPT-4o</span></div>
-              <div class="info-item"><span>Vector DB</span><span class="mono">ChromaDB</span></div>
-              <div class="info-item"><span>Framework</span><span class="mono">FastAPI</span></div>
-              <div class="info-item"><span>Agents</span><span class="mono">5 active</span></div>
+
+          <div class="card mt-4">
+            <div class="card-header">
+              <h3>Self-Correction Verification Invariant</h3>
+            </div>
+            <div class="card-body">
+              <ul class="feature-bullets">
+                <li><strong>Deterministic Code Checks Run First:</strong> Product counts, severity counts, fix categories counts, and ticket IDs are verified with pure Python before LLM review.</li>
+                <li><strong>Self-Correction Loop:</strong> When Verifier returns <code>REVISE</code>, exact ground-truth values are fed back to the Author for automated correction.</li>
+                <li><strong>Safe Triage Steps:</strong> Enforces non-destructive troubleshooting steps (no system resets or causal claims).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pane-column-right">
+          <div class="card terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="terminal-title">LIVE MULTI-AGENT EXECUTION STREAM</div>
+              <div class="terminal-badge" id="terminalStatus">READY</div>
+            </div>
+            <div class="terminal-body" id="sweepTerminal">
+              <div class="terminal-line text-muted">[System] Ready to run lifecycle sweep. Click 'Launch Autonomous Lifecycle Sweep' to begin.</div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Findings tab -->
-      <div class="tab-content" id="content-findings">
-        <div class="findings-filter">
-          <button class="filter-btn active" onclick="filterFindings('all')">All</button>
-          <button class="filter-btn" onclick="filterFindings('duplicate')">Duplicates</button>
-          <button class="filter-btn" onclick="filterFindings('stale')">Stale</button>
-          <button class="filter-btn" onclick="filterFindings('contradiction')">Contradictions</button>
-          <button class="filter-btn" onclick="filterFindings('low_quality')">Low Quality</button>
-          <button class="filter-btn" onclick="filterFindings('gap')">Gaps</button>
-        </div>
-        <div id="findingsList" class="findings-list">
-          <div class="empty-state">Run a sweep to see audit findings</div>
-        </div>
-      </div>
-
-      <!-- Review Queue tab -->
-      <div class="tab-content" id="content-review">
-        <div id="reviewList" class="review-list">
-          <div class="empty-state">No proposals yet — run a sweep first</div>
-        </div>
-      </div>
-
-      <!-- Q&A tab -->
-      <div class="tab-content" id="content-qa">
-        <div class="qa-container">
-          <div class="qa-input-row">
-            <input
-              type="text"
-              id="qaInput"
-              class="qa-input"
-              placeholder="Ask the KB anything… e.g. How to fix login issues in InsightHub?"
-              onkeydown="if(event.key==='Enter') askQuestion()"
-            />
-            <button class="btn btn-primary" onclick="askQuestion()">Ask</button>
+    <!-- Tab 2: 24 Clusters & Scores -->
+    <section class="tab-pane" id="pane-clusters">
+      <div class="card">
+        <div class="card-header flex-between">
+          <div>
+            <h3>Empirical Ticket Clusters & Deterministic Priority Scores</h3>
+            <p class="card-subtitle">All 24 clusters derived from 300 support tickets scored by volume, repetition rate, fix inconsistency, and severity.</p>
           </div>
-          <div id="qaResult" class="qa-result">
-            <div class="empty-state">Ask a question to get a cited answer from the KB</div>
-          </div>
-          <div class="qa-examples">
-            <span class="qa-label">Try:</span>
-            <button class="example-btn" onclick="setQ('How to resolve access control issues in CloudSync?')">Access control in CloudSync</button>
-            <button class="example-btn" onclick="setQ('Why does billing fail in PlatformX?')">Billing in PlatformX</button>
-            <button class="example-btn" onclick="setQ('How to fix performance issues in DataConnect?')">Performance in DataConnect</button>
+          <div class="filter-controls">
+            <input type="text" id="clusterSearch" class="form-input" placeholder="Filter clusters..." oninput="filterClusterTable()" />
           </div>
         </div>
+        <div class="table-responsive">
+          <table class="data-table" id="clustersTable">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Cluster ID</th>
+                <th>Volume (Base)</th>
+                <th>Repetitive Rate</th>
+                <th>Distinct Fixes</th>
+                <th>Severity Mix</th>
+                <th>Priority Score</th>
+                <th>Top Fix IDs</th>
+              </tr>
+            </thead>
+            <tbody id="clustersTableBody">
+              <tr><td colspan="8" class="text-center text-muted">Loading cluster scores...</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+    </section>
 
-      <!-- Audit Log tab -->
-      <div class="tab-content" id="content-log">
-        <div id="auditLogList" class="audit-log-list">
-          <div class="empty-state">Audit log will appear here after a sweep</div>
+    <!-- Tab 3: Synthesized Articles -->
+    <section class="tab-pane" id="pane-kb">
+      <div class="card">
+        <div class="card-header flex-between">
+          <div>
+            <h3>Synthesized & Verified Knowledge Base Articles</h3>
+            <p class="card-subtitle">Articles drafted by KB Author and fact-checked by Deterministic Verifier from empirical ticket evidence.</p>
+          </div>
+          <button class="btn btn-secondary" onclick="loadArticles()">↻ Refresh Articles</button>
+        </div>
+        <div class="articles-grid" id="articlesGrid">
+          <div class="empty-state">Loading articles...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Lifecycle Monitor (Replay Drift) -->
+    <section class="tab-pane" id="pane-lifecycle">
+      <div class="card">
+        <div class="card-header flex-between">
+          <div>
+            <h3>Lifecycle Monitor: Streaming Replay Window Drift Analysis</h3>
+            <p class="card-subtitle">Evaluates tickets created &ge; 2026-05-01 (143 tickets) to flag published articles as KEEP, UPDATE, or RETIRE.</p>
+          </div>
+          <div class="decision-filters">
+            <button class="btn-filter active" onclick="filterSignals('ALL')">All (24)</button>
+            <button class="btn-filter update-btn" onclick="filterSignals('UPDATE')">UPDATE (18)</button>
+            <button class="btn-filter keep-btn" onclick="filterSignals('KEEP')">KEEP (3)</button>
+            <button class="btn-filter retire-btn" onclick="filterSignals('RETIRE')">RETIRE (3)</button>
+          </div>
+        </div>
+        <div class="signals-grid" id="signalsGrid">
+          <div class="empty-state">Loading lifecycle signals...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 5: Human Review Queue -->
+    <section class="tab-pane" id="pane-review">
+      <div class="card">
+        <div class="card-header">
+          <h3>Human-in-the-Loop Review Queue</h3>
+          <p class="card-subtitle">SME approval interface for proposals generated by the Lifecycle Monitor or flagged articles.</p>
+        </div>
+        <div class="review-queue-list" id="reviewQueueList">
+          <div class="empty-state">No pending proposals awaiting review.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 6: Ask Knowledge Base -->
+    <section class="tab-pane" id="pane-qa">
+      <div class="card qa-card">
+        <div class="card-header">
+          <h3>Knowledge Base Q&A Assistant</h3>
+          <p class="card-subtitle">Serves cited, confidence-scored answers derived strictly from verified KB articles and recorded fixes.</p>
+        </div>
+        <div class="qa-chat-box" id="qaChatBox">
+          <div class="chat-message bot">
+            <div class="chat-avatar">🤖</div>
+            <div class="chat-content">
+              <strong>Knowledge Assistant</strong>
+              <p>Hello! I answer IT support inquiries using only verified KB articles and recorded resolution evidence. Try asking:</p>
+              <div class="suggestion-chips">
+                <button class="chip" onclick="askQuestion('How are recurring Billing variant 3 tickets resolved?')">"How are recurring Billing variant 3 tickets resolved?"</button>
+                <button class="chip" onclick="askQuestion('What products are affected in Billing issues and what fixes exist?')">"What products are affected in Billing issues and what fixes exist?"</button>
+                <button class="chip" onclick="askQuestion('What are safe triage steps for billing disputes?')">"What are safe triage steps for billing disputes?"</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="qa-input-bar">
+          <input type="text" id="qaInput" class="form-input" placeholder="Ask a support question grounded in the KB..." onkeydown="handleQAKeyDown(event)" />
+          <button class="btn btn-primary" onclick="submitQA()">Send Query</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 7: Audit Log -->
+    <section class="tab-pane" id="pane-audit">
+      <div class="card">
+        <div class="card-header flex-between">
+          <div>
+            <h3>Autonomous Agent Audit Trail</h3>
+            <p class="card-subtitle">Chronological, tamper-evident log recording every tool invocation, code check, and decision.</p>
+          </div>
+          <div class="audit-filters">
+            <select id="auditAgentFilter" class="form-select sm" onchange="renderAuditLog()">
+              <option value="ALL">All Agents</option>
+              <option value="Verifier">Verifier</option>
+              <option value="KBAuthor">KBAuthor</option>
+              <option value="PatternAnalyst">PatternAnalyst</option>
+              <option value="LifecycleMonitor">LifecycleMonitor</option>
+              <option value="Orchestrator">Orchestrator</option>
+              <option value="human_reviewer">Human Reviewer</option>
+            </select>
+            <button class="btn btn-ghost sm" onclick="loadAuditLog()">↻ Refresh Log</button>
+          </div>
+        </div>
+        <div class="audit-log-container" id="auditLogList">
+          <div class="empty-state">Loading audit log...</div>
         </div>
       </div>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <!-- Modal for Article Details -->
+  <div class="modal-overlay" id="articleModal" onclick="closeArticleModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modalArticleTitle">Article Details</h3>
+        <button class="modal-close" onclick="closeArticleModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalArticleContent">
+        <!-- Content injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
 </body>
 </html>
