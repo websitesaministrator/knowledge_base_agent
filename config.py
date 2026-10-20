@@ -26,6 +26,12 @@ class Settings(BaseSettings):
     weight_fix_inconsistency: float = Field(0.2, env="WEIGHT_FIX_INCONSISTENCY")
     weight_severity: float = Field(0.2, env="WEIGHT_SEVERITY")
 
+    # Lifecycle Monitor thresholds
+    lifecycle_new_fix_share_threshold: float = Field(0.30, env="LIFECYCLE_NEW_FIX_SHARE_THRESHOLD")
+    lifecycle_rep_rate_threshold: float = Field(0.60, env="LIFECYCLE_REP_RATE_THRESHOLD")
+    lifecycle_avg_res_increase_threshold: float = Field(0.20, env="LIFECYCLE_AVG_RES_INCREASE_THRESHOLD")
+    lifecycle_retire_ticket_threshold: int = Field(2, env="LIFECYCLE_RETIRE_TICKET_THRESHOLD")
+
     # Logging
     log_level: str = Field("INFO", env="LOG_LEVEL")
 

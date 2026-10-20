@@ -123,6 +123,7 @@ class KBArticleDraft(BaseModel):
     evidence: ArticleEvidence = Field(description="Ground truth ticket evidence")
     verifier_unresolved: bool = Field(default=False, description="Flagged true if unresolved after max verifier rounds")
     open_issues: list[dict] = Field(default_factory=list, description="Open verifier issues if unresolved")
+    lifecycle_proposal: dict | None = Field(default=None, description="Proposed lifecycle action from Lifecycle Monitor")
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     @classmethod

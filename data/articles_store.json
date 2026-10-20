@@ -5,7 +5,7 @@
     "title": "Billing issues (variant 3): recurring tickets",
     "version": 1,
     "status": "pending_review",
-    "what_we_see": "Ticket summaries contain only templated category wording ('User reported billing while using X') with no symptom detail. A significant issue is that product mismatches are present in the summaries (e.g., 'User reported billing while using CloudSync' when the product is actually InsightHub). In this cluster, 242 out of 300 tickets display a summary-product mismatch, as exemplified by ticket 'TKT-00046'.",
+    "what_we_see": "Ticket summaries contain only templated category wording ('User reported billing while using X') with no symptom detail. In 242/300 rows across the dataset, the product in the summary differs from the product column. In this cluster of 10 tickets, 9 are repetitive (repetitive rate 0.9). Standard fix procedures are not present in data.",
     "products": [
       {
         "name": "InsightHub",
@@ -48,86 +48,80 @@
     ],
     "resolutions_on_record": [
       {
-        "fix_id": 1,
-        "ticket_count": 1,
-        "other_categories_count": 5,
-        "notes": "Fix procedures are not in data."
-      },
-      {
-        "fix_id": 4,
-        "ticket_count": 1,
-        "other_categories_count": 7,
-        "notes": "Fix procedures are not in data."
-      },
-      {
-        "fix_id": 5,
-        "ticket_count": 1,
-        "other_categories_count": 7,
-        "notes": "Fix procedures are not in data."
-      },
-      {
-        "fix_id": 6,
-        "ticket_count": 1,
-        "other_categories_count": 6,
-        "notes": "Fix procedures are not in data."
-      },
-      {
-        "fix_id": 7,
-        "ticket_count": 1,
-        "other_categories_count": 7,
-        "notes": "Fix procedures are not in data."
-      },
-      {
         "fix_id": 8,
         "ticket_count": 2,
         "other_categories_count": 6,
-        "notes": "Fix procedures are not in data."
-      },
-      {
-        "fix_id": 12,
-        "ticket_count": 1,
-        "other_categories_count": 6,
-        "notes": "Fix procedures are not in data."
+        "notes": ""
       },
       {
         "fix_id": 19,
         "ticket_count": 1,
         "other_categories_count": 6,
-        "notes": "Fix procedures are not in data."
+        "notes": ""
+      },
+      {
+        "fix_id": 1,
+        "ticket_count": 1,
+        "other_categories_count": 5,
+        "notes": ""
+      },
+      {
+        "fix_id": 12,
+        "ticket_count": 1,
+        "other_categories_count": 6,
+        "notes": ""
+      },
+      {
+        "fix_id": 5,
+        "ticket_count": 1,
+        "other_categories_count": 7,
+        "notes": ""
+      },
+      {
+        "fix_id": 4,
+        "ticket_count": 1,
+        "other_categories_count": 7,
+        "notes": ""
+      },
+      {
+        "fix_id": 7,
+        "ticket_count": 1,
+        "other_categories_count": 7,
+        "notes": ""
       },
       {
         "fix_id": 20,
         "ticket_count": 1,
         "other_categories_count": 4,
-        "notes": "Fix procedures are not in data."
+        "notes": ""
+      },
+      {
+        "fix_id": 6,
+        "ticket_count": 1,
+        "other_categories_count": 6,
+        "notes": ""
       }
     ],
     "suggested_triage_steps": [
       {
-        "text": "Collect detailed descriptions of the issue from the user, including any error messages or specific actions taken.",
+        "text": "Request billing invoice and transaction timestamp from user.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Verify the product being used based on the user's input and compare with the one listed in the system.",
+        "text": "Lookup prior tickets for customer account in support portal.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Review previous tickets for similar issues and resolutions to identify patterns.",
+        "text": "Consult recorded resolution notes for standard fix references.",
         "label": "AI-suggested, unverified"
       },
       {
-        "text": "Check the specific fix IDs applied in past similar cases and the categories where these fixes were used.",
-        "label": "AI-suggested, unverified"
-      },
-      {
-        "text": "Escalate the ticket to an SME if the issue persists despite prior applied resolutions and gathered data seems insufficient.",
+        "text": "Escalate to Finance SME if invoice discrepancies persist.",
         "label": "AI-suggested, unverified"
       }
     ],
     "needs_sme_input": [
-      "Confirm procedural specifics for applying identified fixes in cluster 'Billing|Billing - variant 3'.",
-      "Clarify if the templated summary wording is standard practice and how it should be addressed.",
-      "Determine why there is a high rate of product mismatch in the ticket summaries and suggest mitigation strategies."
+      "Confirm standard fix procedure steps for Fix #8."
     ],
     "evidence": {
       "ticket_ids": [
@@ -145,8 +139,15 @@
       "ticket_count": 10,
       "repetitive_rate": 0.9
     },
-    "verifier_unresolved": false,
-    "open_issues": [],
-    "created_at": "2026-10-20T07:36:26.164715+00:00"
+    "verifier_unresolved": true,
+    "open_issues": [
+      {
+        "check": "check_required_statements",
+        "detail": "Missing product mismatch note.",
+        "how_to_fix": "Add note on 242/300 product mismatch."
+      }
+    ],
+    "lifecycle_proposal": null,
+    "created_at": "2026-10-20T07:40:41.267864+00:00"
   }
 }
