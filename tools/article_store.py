@@ -86,6 +86,8 @@ class KBArticleDraft(BaseModel):
     suggested_steps: list[SuggestedStep] = Field(description="Cautious steps, max 5, each labeled 'AI-suggested, unverified'")
     needs_sme_input: list[str] = Field(description="List of specific questions and facts a human SME must confirm")
     evidence: ArticleEvidence = Field(description="Ground truth ticket evidence")
+    verifier_unresolved: bool = Field(default=False, description="Flagged true if unresolved after max verifier rounds")
+    open_issues: list[dict] = Field(default_factory=list, description="Open verifier issues if unresolved")
     created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     @classmethod
