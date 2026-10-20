@@ -30,17 +30,18 @@ def main():
 
     top_5 = sorted_clusters[:5]
 
-    header = f"{'Rank':<5} | {'Cluster ID':<42} | {'Count':<5} | {'Rep %':<7} | {'Top Fix':<8} | {'Fix Share':<9} | {'Avg Hrs':<7}"
+    header = f"{'Rank':<5} | {'Cluster ID':<40} | {'Count':<5} | {'Rep %':<7} | {'Top Fix(es)':<12} | {'Fix Share':<9} | {'Dominant?':<9} | {'Avg Hrs':<7}"
     print(header)
-    print("-" * 92)
+    print("-" * 105)
 
     for i, c in enumerate(top_5, start=1):
-        top_fix_str = f"#{c['top_fix_id']}" if c['top_fix_id'] is not None else "N/A"
+        top_fix_str = ", ".join(f"#{f}" for f in c['top_fix_ids']) if c['top_fix_ids'] else "N/A"
         fix_share_str = f"{c['top_fix_share'] * 100:.1f}%" if c['top_fix_share'] else "0.0%"
         rep_rate_str = f"{c['repetitive_rate'] * 100:.1f}%"
+        dom_str = "YES" if c["has_dominant_fix"] else "NO"
         print(
-            f"{i:<5} | {c['cluster_id']:<42} | {c['ticket_count']:<5} | {rep_rate_str:<7} | "
-            f"{top_fix_str:<8} | {fix_share_str:<9} | {c['avg_resolution_hrs']:<7.1f}"
+            f"{i:<5} | {c['cluster_id']:<40} | {c['ticket_count']:<5} | {rep_rate_str:<7} | "
+            f"{top_fix_str:<12} | {fix_share_str:<9} | {dom_str:<9} | {c['avg_resolution_hrs']:<7.1f}"
         )
 
     print("=" * 80)

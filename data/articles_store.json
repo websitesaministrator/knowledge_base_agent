@@ -1,0 +1,100 @@
+{
+  "KB-billing-billing-variant-3-v1": {
+    "article_id": "KB-billing-billing-variant-3-v1",
+    "cluster_id": "Billing|Billing - variant 3",
+    "title": "Investigating Billing Issues in 'Billing - variant 3'",
+    "version": 1,
+    "status": "draft",
+    "what_we_see": "The 'Billing - variant 3' category has 10 support tickets primarily related to unexpected billing occurrences while using various products such as InsightHub, CloudSync, and PlatformX. Notable ticket IDs include TKT-00046, TKT-00081, and TKT-00107. The repetitive rate in this cluster is high at 90%, indicating that most issues occur repeatedly. The severity of these tickets spans from P1 to P4, though P4 (low severity) issues are most common.",
+    "resolutions_on_record": [
+      {
+        "fix_id": 1,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 4,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 5,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 6,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 7,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 8,
+        "ticket_count": 2,
+        "notes": ""
+      },
+      {
+        "fix_id": 12,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 19,
+        "ticket_count": 1,
+        "notes": ""
+      },
+      {
+        "fix_id": 20,
+        "ticket_count": 1,
+        "notes": ""
+      }
+    ],
+    "suggested_steps": [
+      {
+        "text": "AI-suggested, unverified: Review recent billing invoices for discrepancies.",
+        "label": "AI-suggested, unverified"
+      },
+      {
+        "text": "AI-suggested, unverified: Check the product usage records for anomalies.",
+        "label": "AI-suggested, unverified"
+      },
+      {
+        "text": "AI-suggested, unverified: Verify account settings for any unwanted changes.",
+        "label": "AI-suggested, unverified"
+      },
+      {
+        "text": "AI-suggested, unverified: Contact customer support with precise usage timeframes when discrepancies are detected.",
+        "label": "AI-suggested, unverified"
+      },
+      {
+        "text": "AI-suggested, unverified: Ensure that all software updates are correctly installed to avoid billing miscalculations.",
+        "label": "AI-suggested, unverified"
+      }
+    ],
+    "needs_sme_input": [
+      "Verification of the specific procedures involved in each standard fix number.",
+      "Confirmation of common root causes for repeated billing issues"
+    ],
+    "evidence": {
+      "ticket_ids": [
+        "TKT-00046",
+        "TKT-00081",
+        "TKT-00107",
+        "TKT-00172",
+        "TKT-00199",
+        "TKT-00216",
+        "TKT-00219",
+        "TKT-00225",
+        "TKT-00244",
+        "TKT-00247"
+      ],
+      "ticket_count": 10,
+      "repetitive_rate": 0.9
+    },
+    "created_at": "2026-10-20T07:00:15.318699+00:00"
+  }
+}

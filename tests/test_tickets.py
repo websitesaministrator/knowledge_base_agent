@@ -65,8 +65,11 @@ class TestTicketTools(unittest.TestCase):
         self.assertGreater(c_info["ticket_count"], 0)
         self.assertIn("P1", c_info["severity_mix"])
         self.assertTrue(len(c_info["distinct_fix_ids"]) > 0)
-        self.assertIn(c_info["top_fix_id"], c_info["distinct_fix_ids"])
+        self.assertTrue(len(c_info["top_fix_ids"]) > 0)
+        self.assertTrue(all(f in c_info["distinct_fix_ids"] for f in c_info["top_fix_ids"]))
         self.assertGreater(c_info["top_fix_share"], 0.0)
+        self.assertIn("has_dominant_fix", c_info)
+        self.assertIsInstance(c_info["has_dominant_fix"], bool)
 
         # Baseline window
         stats_base = cluster_stats(window="baseline")
@@ -108,11 +111,15 @@ class TestTicketTools(unittest.TestCase):
 
         self.assertNotIn("error", signals)
         self.assertEqual(signals["cluster_id"], cid)
-        self.assertIn("baseline_volume", signals)
-        self.assertIn("replay_volume", signals)
+        self.assertIn("baseline_ticket_count", signals)
+        self.assertIn("replay_ticket_count", signals)
         self.assertIn("volume_change", signals)
-        self.assertIn("lifecycle_signal", signals)
-        self.assertIn(signals["lifecycle_signal"], ["KEEP", "UPDATE", "RETIRE"])
+        self.assertIn("repetitive_rate_change", signals)
+        self.assertIn("average_resolution_change", signals)
+        self.assertIn("fix_ids_new_in_replay", signals)
+        self.assertIn("new_fix_shares_in_replay", signals)
+        # Ensure no lifecycle decision is present
+        self.assertNotIn("lifecycle_signal", signals)
 
         # Unknown cluster_id
         bad_signals = compute_cluster_signals(cluster_id="Unknown|Unknown")

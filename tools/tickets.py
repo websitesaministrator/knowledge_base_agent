@@ -182,8 +182,9 @@ def cluster_stats(window: str = "all") -> dict:
                 "avg_resolution_hrs": 0.0,
                 "distinct_fix_ids": [],
                 "distinct_fix_count": 0,
-                "top_fix_id": None,
+                "top_fix_ids": [],
                 "top_fix_share": 0.0,
+                "has_dominant_fix": False,
                 "severity_mix": {},
                 "monthly_counts": {},
             }
@@ -202,11 +203,15 @@ def cluster_stats(window: str = "all") -> dict:
         distinct_fixes = sorted(list(set(fixes)))
 
         if not fix_series.empty:
-            top_fix = int(fix_series.mode()[0])
-            top_fix_share = round(float((fix_series == top_fix).mean()), 3)
+            counts = fix_series.value_counts()
+            max_count = int(counts.max())
+            top_fix_ids = sorted([int(f) for f in counts[counts == max_count].index])
+            top_fix_share = round(float(max_count / len(fix_series)), 3)
+            has_dominant_fix = bool(top_fix_share >= 0.30 and max_count >= 2)
         else:
-            top_fix = None
+            top_fix_ids = []
             top_fix_share = 0.0
+            has_dominant_fix = False
 
         sev_mix = {str(k): int(v) for k, v in cdf["severity"].value_counts().to_dict().items()}
 
@@ -224,8 +229,9 @@ def cluster_stats(window: str = "all") -> dict:
             "avg_resolution_hrs": avg_hrs,
             "distinct_fix_ids": distinct_fixes,
             "distinct_fix_count": len(distinct_fixes),
-            "top_fix_id": top_fix,
+            "top_fix_ids": top_fix_ids,
             "top_fix_share": top_fix_share,
+            "has_dominant_fix": has_dominant_fix,
             "severity_mix": sev_mix,
             "monthly_counts": m_counts,
         }
@@ -323,8 +329,8 @@ def get_cluster_tickets(cluster_id: str, window: str = "all", limit: int = 50) -
 
 def compute_cluster_signals(cluster_id: str) -> dict:
     """
-    Compare baseline (< 2026-05-01) vs replay (>= 2026-05-01) metrics for a cluster.
-    Computes volume change, repetitive rate shift, resolution time delta, and newly observed fix IDs.
+    Compute drift signals between baseline (< 2026-05-01) and replay (>= 2026-05-01).
+    Returns raw statistical signals only (no decision); Lifecycle Monitor agent decides later.
     """
     all_df = _load_raw_df()
     if cluster_id not in set(all_df["cluster_id"].unique()):
@@ -338,7 +344,6 @@ def compute_cluster_signals(cluster_id: str) -> dict:
     b_vol = base_stats.get("ticket_count", 0)
     r_vol = replay_stats.get("ticket_count", 0)
     vol_change = r_vol - b_vol
-    vol_change_pct = round((vol_change / b_vol) * 100.0, 1) if b_vol > 0 else None
 
     b_rep = base_stats.get("repetitive_rate", 0.0)
     r_rep = replay_stats.get("repetitive_rate", 0.0)
@@ -346,54 +351,31 @@ def compute_cluster_signals(cluster_id: str) -> dict:
 
     b_hrs = base_stats.get("avg_resolution_hrs", 0.0)
     r_hrs = replay_stats.get("avg_resolution_hrs", 0.0)
-    hrs_change = round(r_hrs - b_hrs, 1)
+    avg_res_change = round(r_hrs - b_hrs, 1)
 
     b_fixes = set(base_stats.get("distinct_fix_ids", []))
     r_fixes = set(replay_stats.get("distinct_fix_ids", []))
     new_fixes = sorted(list(r_fixes - b_fixes))
-    retired_fixes = sorted(list(b_fixes - r_fixes))
 
-    b_top = base_stats.get("top_fix_id")
-    r_top = replay_stats.get("top_fix_id")
-    top_shifted = (b_top != r_top) if (b_top is not None and r_top is not None) else False
-
-    # Lifecycle Signal heuristic
-    if r_vol == 0:
-        signal = "RETIRE"
-        reason = "Zero tickets observed in replay window; issue appears resolved or obsolete."
-    elif new_fixes or top_shifted or abs(rep_change) >= 0.2:
-        signal = "UPDATE"
-        reasons = []
-        if new_fixes:
-            reasons.append(f"new fix IDs observed: {new_fixes}")
-        if top_shifted:
-            reasons.append(f"dominant fix shifted from #{b_top} to #{r_top}")
-        if abs(rep_change) >= 0.2:
-            reasons.append(f"repetitive rate changed by {rep_change:+.1%}")
-        reason = "Drift detected: " + "; ".join(reasons)
-    else:
-        signal = "KEEP"
-        reason = "Stable pattern: ticket volume and resolution fixes remain consistent with baseline."
+    # Calculate share of replay tickets for each new fix ID
+    new_fix_shares: dict[str, float] = {}
+    if r_vol > 0 and new_fixes:
+        r_cdf = all_df[(all_df["cluster_id"] == cluster_id) & (all_df["created_date"] >= REPLAY_CUTOFF)]
+        for f in new_fixes:
+            f_count = int((r_cdf["fix_id"] == f).sum())
+            new_fix_shares[str(f)] = round(f_count / r_vol, 3)
 
     return {
         "cluster_id": cluster_id,
-        "baseline_volume": b_vol,
-        "replay_volume": r_vol,
+        "baseline_ticket_count": b_vol,
+        "replay_ticket_count": r_vol,
         "volume_change": vol_change,
-        "volume_change_pct": vol_change_pct,
         "baseline_repetitive_rate": b_rep,
         "replay_repetitive_rate": r_rep,
         "repetitive_rate_change": rep_change,
         "baseline_avg_resolution_hrs": b_hrs,
         "replay_avg_resolution_hrs": r_hrs,
-        "avg_resolution_change_hrs": hrs_change,
-        "baseline_fix_ids": sorted(list(b_fixes)),
-        "replay_fix_ids": sorted(list(r_fixes)),
-        "new_fix_ids_in_replay": new_fixes,
-        "retired_fix_ids_in_replay": retired_fixes,
-        "baseline_top_fix_id": b_top,
-        "replay_top_fix_id": r_top,
-        "top_fix_shifted": top_shifted,
-        "lifecycle_signal": signal,
-        "signal_reason": reason,
+        "average_resolution_change": avg_res_change,
+        "fix_ids_new_in_replay": new_fixes,
+        "new_fix_shares_in_replay": new_fix_shares,
     }
