@@ -1,0 +1,301 @@
+ticket_id,created_date,resolved_date,category,subcategory,summary,resolution_notes,product,severity,sla_met,resolution_time_hrs,is_repetitive
+TKT-00001,2026-03-17,2026-03-17,Access Control,Access Control - variant 3,User reported access control while using PlatformX.,Resolved by applying standard fix #11 from KB.,CloudSync,P1,False,64.2,True
+TKT-00002,2026-07-08,2026-07-12,Configuration,Configuration - variant 3,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #16 from KB.,InsightHub,P1,False,25.4,False
+TKT-00003,2026-07-26,2026-07-29,Billing,Billing - variant 3,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #6 from KB.,PlatformX,P4,True,71.3,True
+TKT-00004,2026-06-18,2026-06-18,Report Error,Report Error - variant 1,User reported report error while using DataConnect.,Resolved by applying standard fix #13 from KB.,PlatformX,P1,False,39.6,False
+TKT-00005,2026-01-03,2026-01-04,Performance,Performance - variant 3,User reported performance while using PlatformX.,Resolved by applying standard fix #5 from KB.,AnalyticsPro,P4,False,47.1,False
+TKT-00006,2026-08-07,2026-08-08,Billing,Billing - variant 2,User reported billing while using CloudSync.,Resolved by applying standard fix #10 from KB.,InsightHub,P3,True,70.1,False
+TKT-00007,2026-07-28,2026-07-29,Integration,Integration - variant 1,User reported integration while using DataConnect.,Resolved by applying standard fix #18 from KB.,PlatformX,P1,False,13.6,True
+TKT-00008,2026-01-08,2026-01-11,Access Control,Access Control - variant 3,User reported access control while using DataConnect.,Resolved by applying standard fix #13 from KB.,InsightHub,P4,False,65.6,False
+TKT-00009,2026-03-16,2026-03-17,Configuration,Configuration - variant 3,User reported configuration while using InsightHub.,Resolved by applying standard fix #12 from KB.,InsightHub,P2,False,119.7,False
+TKT-00010,2026-03-05,2026-03-05,Data Export,Data Export - variant 3,User reported data export while using PlatformX.,Resolved by applying standard fix #5 from KB.,InsightHub,P4,True,10.6,False
+TKT-00011,2026-07-28,2026-07-31,Access Control,Access Control - variant 3,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,CloudSync,P4,False,46.5,True
+TKT-00012,2026-03-14,2026-03-18,Login Issue,Login Issue - variant 3,User reported login issue while using InsightHub.,Resolved by applying standard fix #8 from KB.,CloudSync,P3,False,111.2,False
+TKT-00013,2026-06-02,2026-06-02,Report Error,Report Error - variant 3,User reported report error while using DataConnect.,Resolved by applying standard fix #4 from KB.,CloudSync,P4,True,17.5,False
+TKT-00014,2026-05-15,2026-05-19,Data Export,Data Export - variant 3,User reported data export while using CloudSync.,Resolved by applying standard fix #3 from KB.,AnalyticsPro,P4,True,82.2,False
+TKT-00015,2026-05-20,2026-05-20,Billing,Billing - variant 3,User reported billing while using PlatformX.,Resolved by applying standard fix #16 from KB.,InsightHub,P4,False,50.8,True
+TKT-00016,2026-05-06,2026-05-06,Integration,Integration - variant 3,User reported integration while using CloudSync.,Resolved by applying standard fix #9 from KB.,PlatformX,P4,True,69.0,False
+TKT-00017,2026-05-26,2026-05-31,Login Issue,Login Issue - variant 2,User reported login issue while using InsightHub.,Resolved by applying standard fix #3 from KB.,AnalyticsPro,P1,False,30.6,False
+TKT-00018,2026-05-09,2026-05-11,Login Issue,Login Issue - variant 3,User reported login issue while using PlatformX.,Resolved by applying standard fix #20 from KB.,AnalyticsPro,P2,False,44.7,True
+TKT-00019,2026-05-26,2026-05-31,Configuration,Configuration - variant 2,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #17 from KB.,PlatformX,P3,True,116.1,False
+TKT-00020,2026-03-27,2026-03-30,Access Control,Access Control - variant 2,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P2,False,7.0,True
+TKT-00021,2026-02-02,2026-02-03,Report Error,Report Error - variant 2,User reported report error while using InsightHub.,Resolved by applying standard fix #10 from KB.,InsightHub,P2,False,82.2,True
+TKT-00022,2026-08-09,2026-08-10,Access Control,Access Control - variant 1,User reported access control while using DataConnect.,Resolved by applying standard fix #15 from KB.,InsightHub,P3,True,12.1,False
+TKT-00023,2026-06-28,2026-07-01,Integration,Integration - variant 2,User reported integration while using DataConnect.,Resolved by applying standard fix #9 from KB.,PlatformX,P3,False,55.6,False
+TKT-00024,2026-04-24,2026-04-29,Configuration,Configuration - variant 3,User reported configuration while using DataConnect.,Resolved by applying standard fix #6 from KB.,DataConnect,P1,True,99.9,True
+TKT-00025,2026-07-04,2026-07-08,Data Export,Data Export - variant 3,User reported data export while using InsightHub.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P3,False,23.6,True
+TKT-00026,2026-02-02,2026-02-06,Configuration,Configuration - variant 3,User reported configuration while using PlatformX.,Resolved by applying standard fix #4 from KB.,PlatformX,P2,False,78.9,False
+TKT-00027,2026-03-04,2026-03-09,Performance,Performance - variant 2,User reported performance while using DataConnect.,Resolved by applying standard fix #15 from KB.,PlatformX,P4,False,92.4,False
+TKT-00028,2026-06-09,2026-06-10,Data Export,Data Export - variant 2,User reported data export while using PlatformX.,Resolved by applying standard fix #13 from KB.,InsightHub,P3,True,31.4,True
+TKT-00029,2026-03-15,2026-03-15,Report Error,Report Error - variant 1,User reported report error while using CloudSync.,Resolved by applying standard fix #13 from KB.,AnalyticsPro,P4,True,17.7,True
+TKT-00030,2026-04-20,2026-04-25,Data Export,Data Export - variant 2,User reported data export while using DataConnect.,Resolved by applying standard fix #4 from KB.,PlatformX,P1,True,68.8,True
+TKT-00031,2026-08-01,2026-08-04,Performance,Performance - variant 3,User reported performance while using PlatformX.,Resolved by applying standard fix #2 from KB.,InsightHub,P3,True,84.2,True
+TKT-00032,2026-01-17,2026-01-22,Report Error,Report Error - variant 2,User reported report error while using InsightHub.,Resolved by applying standard fix #13 from KB.,PlatformX,P2,True,46.4,False
+TKT-00033,2026-08-04,2026-08-08,Billing,Billing - variant 2,User reported billing while using DataConnect.,Resolved by applying standard fix #13 from KB.,PlatformX,P1,False,64.4,True
+TKT-00034,2026-02-27,2026-03-02,Integration,Integration - variant 3,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #6 from KB.,CloudSync,P1,False,79.5,True
+TKT-00035,2026-07-04,2026-07-09,Billing,Billing - variant 2,User reported billing while using PlatformX.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P2,True,23.6,False
+TKT-00036,2026-04-16,2026-04-19,Data Export,Data Export - variant 3,User reported data export while using DataConnect.,Resolved by applying standard fix #16 from KB.,CloudSync,P4,True,4.9,True
+TKT-00037,2026-06-26,2026-07-01,Login Issue,Login Issue - variant 2,User reported login issue while using PlatformX.,Resolved by applying standard fix #7 from KB.,CloudSync,P4,True,89.1,True
+TKT-00038,2026-02-02,2026-02-07,Performance,Performance - variant 2,User reported performance while using PlatformX.,Resolved by applying standard fix #16 from KB.,CloudSync,P1,True,84.3,True
+TKT-00039,2026-01-06,2026-01-11,Login Issue,Login Issue - variant 2,User reported login issue while using PlatformX.,Resolved by applying standard fix #15 from KB.,CloudSync,P2,True,98.2,True
+TKT-00040,2026-02-16,2026-02-20,Configuration,Configuration - variant 1,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,DataConnect,P4,False,14.9,False
+TKT-00041,2026-03-11,2026-03-12,Login Issue,Login Issue - variant 3,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #11 from KB.,PlatformX,P1,False,17.4,True
+TKT-00042,2026-03-23,2026-03-25,Performance,Performance - variant 2,User reported performance while using AnalyticsPro.,Resolved by applying standard fix #19 from KB.,PlatformX,P2,True,95.0,False
+TKT-00043,2026-07-25,2026-07-26,Login Issue,Login Issue - variant 2,User reported login issue while using PlatformX.,Resolved by applying standard fix #1 from KB.,PlatformX,P2,True,85.0,False
+TKT-00044,2026-05-14,2026-05-19,Report Error,Report Error - variant 3,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #7 from KB.,AnalyticsPro,P3,False,49.7,True
+TKT-00045,2026-01-20,2026-01-21,Report Error,Report Error - variant 3,User reported report error while using PlatformX.,Resolved by applying standard fix #10 from KB.,DataConnect,P4,True,67.1,True
+TKT-00046,2026-02-17,2026-02-17,Billing,Billing - variant 3,User reported billing while using CloudSync.,Resolved by applying standard fix #8 from KB.,InsightHub,P2,False,6.8,True
+TKT-00047,2026-03-22,2026-03-25,Report Error,Report Error - variant 1,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #2 from KB.,PlatformX,P3,False,25.5,True
+TKT-00048,2026-06-20,2026-06-23,Login Issue,Login Issue - variant 1,User reported login issue while using PlatformX.,Resolved by applying standard fix #18 from KB.,AnalyticsPro,P2,True,58.5,True
+TKT-00049,2026-02-08,2026-02-13,Report Error,Report Error - variant 3,User reported report error while using CloudSync.,Resolved by applying standard fix #11 from KB.,InsightHub,P2,False,28.0,True
+TKT-00050,2026-06-08,2026-06-08,Configuration,Configuration - variant 3,User reported configuration while using InsightHub.,Resolved by applying standard fix #7 from KB.,InsightHub,P2,True,56.8,True
+TKT-00051,2026-01-14,2026-01-15,Configuration,Configuration - variant 3,User reported configuration while using InsightHub.,Resolved by applying standard fix #6 from KB.,InsightHub,P3,True,55.2,True
+TKT-00052,2026-06-09,2026-06-10,Billing,Billing - variant 1,User reported billing while using PlatformX.,Resolved by applying standard fix #19 from KB.,PlatformX,P3,True,13.8,True
+TKT-00053,2026-08-14,2026-08-15,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #20 from KB.,AnalyticsPro,P2,True,10.8,False
+TKT-00054,2026-08-28,2026-08-29,Report Error,Report Error - variant 2,User reported report error while using DataConnect.,Resolved by applying standard fix #1 from KB.,InsightHub,P2,True,39.6,False
+TKT-00055,2026-04-19,2026-04-20,Login Issue,Login Issue - variant 2,User reported login issue while using PlatformX.,Resolved by applying standard fix #2 from KB.,InsightHub,P1,False,64.0,True
+TKT-00056,2026-02-15,2026-02-18,Configuration,Configuration - variant 1,User reported configuration while using CloudSync.,Resolved by applying standard fix #1 from KB.,InsightHub,P2,True,43.3,True
+TKT-00057,2026-02-01,2026-02-04,Integration,Integration - variant 1,User reported integration while using InsightHub.,Resolved by applying standard fix #19 from KB.,CloudSync,P1,False,55.9,True
+TKT-00058,2026-07-06,2026-07-08,Report Error,Report Error - variant 3,User reported report error while using PlatformX.,Resolved by applying standard fix #3 from KB.,InsightHub,P3,True,35.9,True
+TKT-00059,2026-04-26,2026-05-01,Data Export,Data Export - variant 3,User reported data export while using DataConnect.,Resolved by applying standard fix #2 from KB.,CloudSync,P3,True,13.8,True
+TKT-00060,2026-08-20,2026-08-20,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #18 from KB.,PlatformX,P2,True,117.8,True
+TKT-00061,2026-02-21,2026-02-24,Configuration,Configuration - variant 3,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #11 from KB.,DataConnect,P3,False,33.6,True
+TKT-00062,2026-06-12,2026-06-15,Report Error,Report Error - variant 3,User reported report error while using CloudSync.,Resolved by applying standard fix #4 from KB.,InsightHub,P3,False,74.7,False
+TKT-00063,2026-02-07,2026-02-10,Data Export,Data Export - variant 1,User reported data export while using InsightHub.,Resolved by applying standard fix #6 from KB.,DataConnect,P1,True,20.2,True
+TKT-00064,2026-03-16,2026-03-17,Configuration,Configuration - variant 3,User reported configuration while using PlatformX.,Resolved by applying standard fix #10 from KB.,InsightHub,P2,False,41.9,True
+TKT-00065,2026-01-10,2026-01-11,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #17 from KB.,DataConnect,P4,False,78.9,True
+TKT-00066,2026-08-19,2026-08-24,Report Error,Report Error - variant 2,User reported report error while using DataConnect.,Resolved by applying standard fix #19 from KB.,AnalyticsPro,P3,True,94.8,True
+TKT-00067,2026-08-12,2026-08-14,Login Issue,Login Issue - variant 1,User reported login issue while using DataConnect.,Resolved by applying standard fix #10 from KB.,InsightHub,P2,True,85.6,True
+TKT-00068,2026-03-06,2026-03-11,Performance,Performance - variant 1,User reported performance while using AnalyticsPro.,Resolved by applying standard fix #4 from KB.,PlatformX,P3,True,53.2,True
+TKT-00069,2026-03-07,2026-03-11,Login Issue,Login Issue - variant 3,User reported login issue while using DataConnect.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P3,False,65.0,True
+TKT-00070,2026-05-04,2026-05-04,Access Control,Access Control - variant 2,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,DataConnect,P2,True,116.4,False
+TKT-00071,2026-06-21,2026-06-26,Integration,Integration - variant 2,User reported integration while using DataConnect.,Resolved by applying standard fix #19 from KB.,AnalyticsPro,P4,False,82.9,False
+TKT-00072,2026-08-02,2026-08-03,Data Export,Data Export - variant 2,User reported data export while using PlatformX.,Resolved by applying standard fix #13 from KB.,CloudSync,P2,False,43.2,True
+TKT-00073,2026-01-20,2026-01-25,Configuration,Configuration - variant 3,User reported configuration while using CloudSync.,Resolved by applying standard fix #8 from KB.,DataConnect,P2,True,10.5,True
+TKT-00074,2026-02-17,2026-02-20,Configuration,Configuration - variant 2,User reported configuration while using DataConnect.,Resolved by applying standard fix #20 from KB.,CloudSync,P1,False,48.0,False
+TKT-00075,2026-07-12,2026-07-15,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #12 from KB.,DataConnect,P3,False,105.0,True
+TKT-00076,2026-04-24,2026-04-27,Access Control,Access Control - variant 2,User reported access control while using DataConnect.,Resolved by applying standard fix #6 from KB.,InsightHub,P4,True,100.3,False
+TKT-00077,2026-02-05,2026-02-06,Integration,Integration - variant 2,User reported integration while using CloudSync.,Resolved by applying standard fix #11 from KB.,PlatformX,P4,True,1.3,False
+TKT-00078,2026-05-14,2026-05-15,Report Error,Report Error - variant 3,User reported report error while using CloudSync.,Resolved by applying standard fix #5 from KB.,AnalyticsPro,P2,False,35.1,True
+TKT-00079,2026-01-27,2026-01-29,Integration,Integration - variant 2,User reported integration while using CloudSync.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P1,True,18.9,True
+TKT-00080,2026-08-04,2026-08-09,Integration,Integration - variant 2,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #16 from KB.,AnalyticsPro,P1,True,91.9,True
+TKT-00081,2026-02-20,2026-02-25,Billing,Billing - variant 3,User reported billing while using InsightHub.,Resolved by applying standard fix #19 from KB.,InsightHub,P3,False,116.9,True
+TKT-00082,2026-06-17,2026-06-22,Login Issue,Login Issue - variant 2,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #19 from KB.,PlatformX,P2,False,55.6,False
+TKT-00083,2026-03-12,2026-03-13,Login Issue,Login Issue - variant 2,User reported login issue while using DataConnect.,Resolved by applying standard fix #14 from KB.,DataConnect,P1,False,35.4,False
+TKT-00084,2026-02-17,2026-02-18,Performance,Performance - variant 1,User reported performance while using CloudSync.,Resolved by applying standard fix #6 from KB.,CloudSync,P3,False,99.3,False
+TKT-00085,2026-05-09,2026-05-14,Billing,Billing - variant 1,User reported billing while using CloudSync.,Resolved by applying standard fix #19 from KB.,DataConnect,P2,True,16.9,True
+TKT-00086,2026-06-25,2026-06-28,Access Control,Access Control - variant 2,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #4 from KB.,AnalyticsPro,P2,True,99.9,False
+TKT-00087,2026-02-14,2026-02-17,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #1 from KB.,InsightHub,P3,False,83.1,True
+TKT-00088,2026-08-20,2026-08-24,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #1 from KB.,PlatformX,P2,True,102.9,True
+TKT-00089,2026-04-10,2026-04-11,Configuration,Configuration - variant 1,User reported configuration while using PlatformX.,Resolved by applying standard fix #14 from KB.,PlatformX,P1,True,93.1,True
+TKT-00090,2026-01-07,2026-01-07,Login Issue,Login Issue - variant 3,User reported login issue while using CloudSync.,Resolved by applying standard fix #19 from KB.,PlatformX,P4,True,109.1,True
+TKT-00091,2026-02-10,2026-02-15,Login Issue,Login Issue - variant 1,User reported login issue while using PlatformX.,Resolved by applying standard fix #20 from KB.,AnalyticsPro,P2,True,80.6,True
+TKT-00092,2026-02-05,2026-02-10,Integration,Integration - variant 3,User reported integration while using DataConnect.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P2,True,12.3,False
+TKT-00093,2026-01-17,2026-01-18,Configuration,Configuration - variant 2,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #18 from KB.,PlatformX,P1,True,110.5,False
+TKT-00094,2026-08-12,2026-08-17,Performance,Performance - variant 2,User reported performance while using PlatformX.,Resolved by applying standard fix #6 from KB.,DataConnect,P4,False,26.1,True
+TKT-00095,2026-07-04,2026-07-06,Data Export,Data Export - variant 2,User reported data export while using PlatformX.,Resolved by applying standard fix #17 from KB.,AnalyticsPro,P4,False,84.7,False
+TKT-00096,2026-01-03,2026-01-05,Report Error,Report Error - variant 1,User reported report error while using InsightHub.,Resolved by applying standard fix #10 from KB.,InsightHub,P3,False,27.5,True
+TKT-00097,2026-05-28,2026-05-31,Configuration,Configuration - variant 1,User reported configuration while using InsightHub.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P1,False,80.8,True
+TKT-00098,2026-08-17,2026-08-22,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #13 from KB.,InsightHub,P1,True,8.2,True
+TKT-00099,2026-06-07,2026-06-11,Access Control,Access Control - variant 1,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,InsightHub,P3,False,90.9,False
+TKT-00100,2026-07-12,2026-07-15,Access Control,Access Control - variant 2,User reported access control while using CloudSync.,Resolved by applying standard fix #9 from KB.,AnalyticsPro,P4,True,15.1,True
+TKT-00101,2026-08-08,2026-08-13,Performance,Performance - variant 1,User reported performance while using PlatformX.,Resolved by applying standard fix #2 from KB.,PlatformX,P4,True,116.7,True
+TKT-00102,2026-06-05,2026-06-07,Data Export,Data Export - variant 1,User reported data export while using CloudSync.,Resolved by applying standard fix #16 from KB.,InsightHub,P2,False,79.6,True
+TKT-00103,2026-05-18,2026-05-20,Login Issue,Login Issue - variant 1,User reported login issue while using InsightHub.,Resolved by applying standard fix #4 from KB.,InsightHub,P4,False,102.4,True
+TKT-00104,2026-08-02,2026-08-02,Performance,Performance - variant 3,User reported performance while using DataConnect.,Resolved by applying standard fix #6 from KB.,InsightHub,P4,True,37.8,True
+TKT-00105,2026-08-25,2026-08-25,Report Error,Report Error - variant 3,User reported report error while using CloudSync.,Resolved by applying standard fix #18 from KB.,CloudSync,P4,False,67.7,True
+TKT-00106,2026-01-13,2026-01-15,Report Error,Report Error - variant 3,User reported report error while using InsightHub.,Resolved by applying standard fix #20 from KB.,DataConnect,P3,False,7.8,False
+TKT-00107,2026-01-05,2026-01-07,Billing,Billing - variant 3,User reported billing while using CloudSync.,Resolved by applying standard fix #1 from KB.,DataConnect,P4,True,51.7,True
+TKT-00108,2026-07-12,2026-07-12,Configuration,Configuration - variant 1,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #10 from KB.,CloudSync,P1,True,104.3,True
+TKT-00109,2026-06-06,2026-06-06,Billing,Billing - variant 1,User reported billing while using InsightHub.,Resolved by applying standard fix #14 from KB.,CloudSync,P4,False,2.9,True
+TKT-00110,2026-01-11,2026-01-14,Access Control,Access Control - variant 2,User reported access control while using CloudSync.,Resolved by applying standard fix #4 from KB.,InsightHub,P1,True,40.6,False
+TKT-00111,2026-06-06,2026-06-10,Integration,Integration - variant 2,User reported integration while using InsightHub.,Resolved by applying standard fix #7 from KB.,InsightHub,P1,True,34.8,True
+TKT-00112,2026-05-19,2026-05-22,Configuration,Configuration - variant 3,User reported configuration while using PlatformX.,Resolved by applying standard fix #19 from KB.,PlatformX,P3,False,8.5,False
+TKT-00113,2026-08-14,2026-08-15,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #17 from KB.,DataConnect,P4,False,24.4,True
+TKT-00114,2026-05-20,2026-05-24,Report Error,Report Error - variant 3,User reported report error while using CloudSync.,Resolved by applying standard fix #6 from KB.,PlatformX,P2,False,25.9,False
+TKT-00115,2026-08-09,2026-08-14,Access Control,Access Control - variant 3,User reported access control while using PlatformX.,Resolved by applying standard fix #17 from KB.,AnalyticsPro,P3,False,18.2,True
+TKT-00116,2026-05-28,2026-05-31,Access Control,Access Control - variant 2,User reported access control while using PlatformX.,Resolved by applying standard fix #7 from KB.,InsightHub,P3,False,77.7,True
+TKT-00117,2026-04-13,2026-04-14,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #1 from KB.,AnalyticsPro,P3,False,58.5,True
+TKT-00118,2026-07-21,2026-07-21,Configuration,Configuration - variant 1,User reported configuration while using DataConnect.,Resolved by applying standard fix #5 from KB.,PlatformX,P3,False,79.2,True
+TKT-00119,2026-01-24,2026-01-27,Login Issue,Login Issue - variant 1,User reported login issue while using PlatformX.,Resolved by applying standard fix #11 from KB.,CloudSync,P3,True,108.1,True
+TKT-00120,2026-06-22,2026-06-27,Data Export,Data Export - variant 2,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #8 from KB.,PlatformX,P1,False,59.8,True
+TKT-00121,2026-04-20,2026-04-20,Billing,Billing - variant 2,User reported billing while using CloudSync.,Resolved by applying standard fix #13 from KB.,AnalyticsPro,P4,True,17.7,True
+TKT-00122,2026-04-09,2026-04-12,Access Control,Access Control - variant 2,User reported access control while using CloudSync.,Resolved by applying standard fix #2 from KB.,InsightHub,P3,True,38.3,True
+TKT-00123,2026-08-22,2026-08-23,Integration,Integration - variant 1,User reported integration while using DataConnect.,Resolved by applying standard fix #16 from KB.,DataConnect,P3,True,77.6,False
+TKT-00124,2026-01-27,2026-02-01,Login Issue,Login Issue - variant 3,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #9 from KB.,CloudSync,P4,False,76.9,False
+TKT-00125,2026-06-26,2026-07-01,Data Export,Data Export - variant 3,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,InsightHub,P1,False,111.3,True
+TKT-00126,2026-05-03,2026-05-04,Integration,Integration - variant 1,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,DataConnect,P4,True,33.2,True
+TKT-00127,2026-08-16,2026-08-21,Access Control,Access Control - variant 2,User reported access control while using InsightHub.,Resolved by applying standard fix #4 from KB.,AnalyticsPro,P3,True,42.5,False
+TKT-00128,2026-06-15,2026-06-20,Login Issue,Login Issue - variant 1,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P1,False,24.4,True
+TKT-00129,2026-06-19,2026-06-19,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #17 from KB.,AnalyticsPro,P4,False,54.5,False
+TKT-00130,2026-03-09,2026-03-10,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #3 from KB.,InsightHub,P3,True,47.5,True
+TKT-00131,2026-04-01,2026-04-01,Configuration,Configuration - variant 1,User reported configuration while using InsightHub.,Resolved by applying standard fix #7 from KB.,DataConnect,P2,True,48.4,True
+TKT-00132,2026-05-05,2026-05-05,Billing,Billing - variant 1,User reported billing while using CloudSync.,Resolved by applying standard fix #4 from KB.,PlatformX,P4,False,99.4,True
+TKT-00133,2026-02-08,2026-02-13,Configuration,Configuration - variant 1,User reported configuration while using DataConnect.,Resolved by applying standard fix #10 from KB.,InsightHub,P4,True,52.0,True
+TKT-00134,2026-04-27,2026-04-29,Configuration,Configuration - variant 2,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,AnalyticsPro,P1,False,117.1,True
+TKT-00135,2026-08-08,2026-08-10,Report Error,Report Error - variant 1,User reported report error while using PlatformX.,Resolved by applying standard fix #16 from KB.,AnalyticsPro,P3,False,82.6,False
+TKT-00136,2026-07-23,2026-07-26,Integration,Integration - variant 1,User reported integration while using PlatformX.,Resolved by applying standard fix #18 from KB.,PlatformX,P1,False,111.8,True
+TKT-00137,2026-06-20,2026-06-25,Login Issue,Login Issue - variant 1,User reported login issue while using DataConnect.,Resolved by applying standard fix #17 from KB.,CloudSync,P4,False,117.3,False
+TKT-00138,2026-06-05,2026-06-09,Login Issue,Login Issue - variant 3,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #9 from KB.,AnalyticsPro,P4,False,105.4,True
+TKT-00139,2026-02-11,2026-02-16,Access Control,Access Control - variant 1,User reported access control while using DataConnect.,Resolved by applying standard fix #4 from KB.,DataConnect,P1,True,60.2,True
+TKT-00140,2026-06-14,2026-06-16,Integration,Integration - variant 3,User reported integration while using DataConnect.,Resolved by applying standard fix #17 from KB.,DataConnect,P4,True,38.2,True
+TKT-00141,2026-03-18,2026-03-23,Report Error,Report Error - variant 1,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #5 from KB.,PlatformX,P2,True,4.8,True
+TKT-00142,2026-03-23,2026-03-26,Access Control,Access Control - variant 1,User reported access control while using InsightHub.,Resolved by applying standard fix #2 from KB.,InsightHub,P3,False,55.2,True
+TKT-00143,2026-03-04,2026-03-06,Data Export,Data Export - variant 1,User reported data export while using DataConnect.,Resolved by applying standard fix #6 from KB.,AnalyticsPro,P3,True,70.2,True
+TKT-00144,2026-03-14,2026-03-14,Configuration,Configuration - variant 2,User reported configuration while using PlatformX.,Resolved by applying standard fix #11 from KB.,PlatformX,P3,True,47.6,False
+TKT-00145,2026-02-27,2026-03-01,Performance,Performance - variant 1,User reported performance while using PlatformX.,Resolved by applying standard fix #15 from KB.,InsightHub,P4,False,71.5,True
+TKT-00146,2026-06-02,2026-06-07,Report Error,Report Error - variant 2,User reported report error while using CloudSync.,Resolved by applying standard fix #5 from KB.,AnalyticsPro,P1,False,39.1,True
+TKT-00147,2026-02-18,2026-02-22,Access Control,Access Control - variant 1,User reported access control while using InsightHub.,Resolved by applying standard fix #9 from KB.,AnalyticsPro,P2,False,11.2,True
+TKT-00148,2026-03-13,2026-03-16,Integration,Integration - variant 3,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #4 from KB.,DataConnect,P4,False,88.4,True
+TKT-00149,2026-03-12,2026-03-17,Data Export,Data Export - variant 2,User reported data export while using CloudSync.,Resolved by applying standard fix #7 from KB.,InsightHub,P4,False,57.4,False
+TKT-00150,2026-07-03,2026-07-06,Billing,Billing - variant 3,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,InsightHub,P1,True,61.8,True
+TKT-00151,2026-04-21,2026-04-26,Performance,Performance - variant 2,User reported performance while using CloudSync.,Resolved by applying standard fix #17 from KB.,PlatformX,P3,False,52.8,True
+TKT-00152,2026-05-05,2026-05-06,Integration,Integration - variant 1,User reported integration while using CloudSync.,Resolved by applying standard fix #14 from KB.,DataConnect,P1,True,110.1,False
+TKT-00153,2026-02-17,2026-02-20,Access Control,Access Control - variant 1,User reported access control while using InsightHub.,Resolved by applying standard fix #19 from KB.,DataConnect,P3,False,70.5,False
+TKT-00154,2026-01-04,2026-01-09,Report Error,Report Error - variant 1,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #13 from KB.,PlatformX,P1,False,105.3,True
+TKT-00155,2026-06-19,2026-06-24,Report Error,Report Error - variant 3,User reported report error while using InsightHub.,Resolved by applying standard fix #20 from KB.,DataConnect,P3,True,25.7,True
+TKT-00156,2026-05-28,2026-06-02,Data Export,Data Export - variant 2,User reported data export while using CloudSync.,Resolved by applying standard fix #1 from KB.,PlatformX,P4,True,2.1,False
+TKT-00157,2026-08-15,2026-08-20,Access Control,Access Control - variant 3,User reported access control while using CloudSync.,Resolved by applying standard fix #16 from KB.,DataConnect,P3,False,96.7,True
+TKT-00158,2026-03-05,2026-03-05,Configuration,Configuration - variant 1,User reported configuration while using PlatformX.,Resolved by applying standard fix #7 from KB.,PlatformX,P2,False,78.0,False
+TKT-00159,2026-04-14,2026-04-19,Configuration,Configuration - variant 1,User reported configuration while using DataConnect.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P4,False,3.1,True
+TKT-00160,2026-03-24,2026-03-29,Report Error,Report Error - variant 2,User reported report error while using InsightHub.,Resolved by applying standard fix #1 from KB.,InsightHub,P2,True,35.7,True
+TKT-00161,2026-01-11,2026-01-11,Data Export,Data Export - variant 3,User reported data export while using InsightHub.,Resolved by applying standard fix #14 from KB.,InsightHub,P3,True,58.8,True
+TKT-00162,2026-08-08,2026-08-13,Login Issue,Login Issue - variant 3,User reported login issue while using PlatformX.,Resolved by applying standard fix #14 from KB.,CloudSync,P3,True,32.5,False
+TKT-00163,2026-07-16,2026-07-16,Report Error,Report Error - variant 3,User reported report error while using DataConnect.,Resolved by applying standard fix #15 from KB.,InsightHub,P1,True,34.9,True
+TKT-00164,2026-08-12,2026-08-15,Configuration,Configuration - variant 3,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #19 from KB.,DataConnect,P4,True,106.0,False
+TKT-00165,2026-07-14,2026-07-19,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #20 from KB.,AnalyticsPro,P3,True,80.2,True
+TKT-00166,2026-03-07,2026-03-08,Report Error,Report Error - variant 1,User reported report error while using InsightHub.,Resolved by applying standard fix #16 from KB.,DataConnect,P2,True,67.0,True
+TKT-00167,2026-06-09,2026-06-11,Performance,Performance - variant 1,User reported performance while using CloudSync.,Resolved by applying standard fix #2 from KB.,PlatformX,P3,False,14.1,True
+TKT-00168,2026-02-18,2026-02-19,Report Error,Report Error - variant 2,User reported report error while using DataConnect.,Resolved by applying standard fix #12 from KB.,PlatformX,P3,True,102.5,False
+TKT-00169,2026-02-23,2026-02-23,Report Error,Report Error - variant 2,User reported report error while using PlatformX.,Resolved by applying standard fix #4 from KB.,CloudSync,P1,True,61.1,True
+TKT-00170,2026-02-28,2026-03-01,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #15 from KB.,CloudSync,P4,True,18.9,True
+TKT-00171,2026-06-27,2026-06-28,Data Export,Data Export - variant 1,User reported data export while using InsightHub.,Resolved by applying standard fix #14 from KB.,PlatformX,P2,False,41.3,False
+TKT-00172,2026-03-03,2026-03-05,Billing,Billing - variant 3,User reported billing while using InsightHub.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P2,False,94.6,True
+TKT-00173,2026-07-14,2026-07-17,Report Error,Report Error - variant 3,User reported report error while using DataConnect.,Resolved by applying standard fix #1 from KB.,InsightHub,P2,True,86.3,False
+TKT-00174,2026-02-03,2026-02-05,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,PlatformX,P4,True,79.4,False
+TKT-00175,2026-03-19,2026-03-19,Integration,Integration - variant 2,User reported integration while using InsightHub.,Resolved by applying standard fix #18 from KB.,DataConnect,P3,False,1.4,True
+TKT-00176,2026-03-23,2026-03-26,Report Error,Report Error - variant 3,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #18 from KB.,CloudSync,P4,False,106.6,False
+TKT-00177,2026-07-25,2026-07-26,Integration,Integration - variant 1,User reported integration while using PlatformX.,Resolved by applying standard fix #18 from KB.,DataConnect,P4,True,62.7,False
+TKT-00178,2026-05-07,2026-05-07,Integration,Integration - variant 3,User reported integration while using DataConnect.,Resolved by applying standard fix #6 from KB.,PlatformX,P1,False,29.3,True
+TKT-00179,2026-07-17,2026-07-17,Login Issue,Login Issue - variant 2,User reported login issue while using DataConnect.,Resolved by applying standard fix #17 from KB.,DataConnect,P1,True,90.9,True
+TKT-00180,2026-08-10,2026-08-14,Login Issue,Login Issue - variant 2,User reported login issue while using DataConnect.,Resolved by applying standard fix #8 from KB.,CloudSync,P2,False,36.3,False
+TKT-00181,2026-03-23,2026-03-26,Configuration,Configuration - variant 1,User reported configuration while using DataConnect.,Resolved by applying standard fix #17 from KB.,CloudSync,P2,False,54.8,True
+TKT-00182,2026-07-27,2026-07-30,Data Export,Data Export - variant 1,User reported data export while using PlatformX.,Resolved by applying standard fix #14 from KB.,AnalyticsPro,P4,True,53.8,True
+TKT-00183,2026-07-19,2026-07-23,Access Control,Access Control - variant 2,User reported access control while using CloudSync.,Resolved by applying standard fix #16 from KB.,InsightHub,P4,False,87.9,True
+TKT-00184,2026-03-05,2026-03-09,Performance,Performance - variant 2,User reported performance while using InsightHub.,Resolved by applying standard fix #5 from KB.,CloudSync,P1,True,54.9,True
+TKT-00185,2026-03-18,2026-03-20,Data Export,Data Export - variant 3,User reported data export while using InsightHub.,Resolved by applying standard fix #4 from KB.,PlatformX,P3,False,5.3,True
+TKT-00186,2026-02-12,2026-02-14,Billing,Billing - variant 2,User reported billing while using DataConnect.,Resolved by applying standard fix #16 from KB.,PlatformX,P2,True,94.2,True
+TKT-00187,2026-01-10,2026-01-12,Configuration,Configuration - variant 1,User reported configuration while using InsightHub.,Resolved by applying standard fix #1 from KB.,PlatformX,P3,True,104.5,True
+TKT-00188,2026-08-19,2026-08-21,Report Error,Report Error - variant 2,User reported report error while using InsightHub.,Resolved by applying standard fix #16 from KB.,CloudSync,P2,True,60.8,True
+TKT-00189,2026-08-22,2026-08-25,Performance,Performance - variant 3,User reported performance while using DataConnect.,Resolved by applying standard fix #3 from KB.,CloudSync,P4,False,28.3,True
+TKT-00190,2026-06-18,2026-06-18,Report Error,Report Error - variant 3,User reported report error while using DataConnect.,Resolved by applying standard fix #3 from KB.,AnalyticsPro,P1,False,67.5,True
+TKT-00191,2026-02-07,2026-02-11,Login Issue,Login Issue - variant 3,User reported login issue while using CloudSync.,Resolved by applying standard fix #7 from KB.,InsightHub,P1,True,79.2,False
+TKT-00192,2026-03-01,2026-03-03,Configuration,Configuration - variant 1,User reported configuration while using CloudSync.,Resolved by applying standard fix #15 from KB.,PlatformX,P3,False,70.9,True
+TKT-00193,2026-01-11,2026-01-14,Performance,Performance - variant 2,User reported performance while using PlatformX.,Resolved by applying standard fix #17 from KB.,DataConnect,P4,False,11.4,True
+TKT-00194,2026-03-10,2026-03-11,Performance,Performance - variant 2,User reported performance while using PlatformX.,Resolved by applying standard fix #5 from KB.,DataConnect,P4,True,7.5,True
+TKT-00195,2026-03-01,2026-03-06,Login Issue,Login Issue - variant 2,User reported login issue while using InsightHub.,Resolved by applying standard fix #4 from KB.,DataConnect,P2,False,107.2,True
+TKT-00196,2026-07-27,2026-07-27,Login Issue,Login Issue - variant 1,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #20 from KB.,CloudSync,P2,False,61.3,False
+TKT-00197,2026-07-04,2026-07-06,Login Issue,Login Issue - variant 2,User reported login issue while using InsightHub.,Resolved by applying standard fix #18 from KB.,InsightHub,P1,False,4.0,False
+TKT-00198,2026-04-01,2026-04-03,Data Export,Data Export - variant 1,User reported data export while using CloudSync.,Resolved by applying standard fix #5 from KB.,DataConnect,P4,False,10.5,False
+TKT-00199,2026-04-26,2026-04-27,Billing,Billing - variant 3,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #8 from KB.,CloudSync,P4,False,5.5,True
+TKT-00200,2026-05-21,2026-05-22,Login Issue,Login Issue - variant 1,User reported login issue while using InsightHub.,Resolved by applying standard fix #9 from KB.,CloudSync,P3,False,119.9,False
+TKT-00201,2026-04-19,2026-04-23,Integration,Integration - variant 1,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #18 from KB.,CloudSync,P1,False,11.2,False
+TKT-00202,2026-02-27,2026-02-28,Integration,Integration - variant 2,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #20 from KB.,CloudSync,P3,False,76.4,False
+TKT-00203,2026-08-09,2026-08-10,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,CloudSync,P3,True,109.7,True
+TKT-00204,2026-01-20,2026-01-23,Login Issue,Login Issue - variant 1,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,CloudSync,P4,False,64.8,False
+TKT-00205,2026-02-18,2026-02-18,Report Error,Report Error - variant 3,User reported report error while using PlatformX.,Resolved by applying standard fix #12 from KB.,InsightHub,P3,False,21.7,False
+TKT-00206,2026-01-04,2026-01-07,Billing,Billing - variant 1,User reported billing while using InsightHub.,Resolved by applying standard fix #1 from KB.,AnalyticsPro,P1,False,81.8,False
+TKT-00207,2026-06-07,2026-06-07,Integration,Integration - variant 3,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #8 from KB.,InsightHub,P3,True,34.1,False
+TKT-00208,2026-04-01,2026-04-02,Access Control,Access Control - variant 1,User reported access control while using DataConnect.,Resolved by applying standard fix #19 from KB.,CloudSync,P4,True,66.4,False
+TKT-00209,2026-03-03,2026-03-07,Performance,Performance - variant 3,User reported performance while using PlatformX.,Resolved by applying standard fix #5 from KB.,DataConnect,P2,False,23.4,False
+TKT-00210,2026-01-23,2026-01-28,Integration,Integration - variant 3,User reported integration while using CloudSync.,Resolved by applying standard fix #15 from KB.,PlatformX,P4,True,102.5,True
+TKT-00211,2026-07-28,2026-07-31,Integration,Integration - variant 1,User reported integration while using CloudSync.,Resolved by applying standard fix #15 from KB.,InsightHub,P3,True,106.1,True
+TKT-00212,2026-01-09,2026-01-12,Report Error,Report Error - variant 2,User reported report error while using PlatformX.,Resolved by applying standard fix #13 from KB.,AnalyticsPro,P3,True,105.7,True
+TKT-00213,2026-04-23,2026-04-26,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #6 from KB.,DataConnect,P3,True,75.3,True
+TKT-00214,2026-01-16,2026-01-19,Login Issue,Login Issue - variant 3,User reported login issue while using DataConnect.,Resolved by applying standard fix #9 from KB.,AnalyticsPro,P1,False,29.0,True
+TKT-00215,2026-01-27,2026-01-29,Configuration,Configuration - variant 1,User reported configuration while using CloudSync.,Resolved by applying standard fix #20 from KB.,InsightHub,P1,False,69.7,True
+TKT-00216,2026-01-02,2026-01-05,Billing,Billing - variant 3,User reported billing while using PlatformX.,Resolved by applying standard fix #5 from KB.,PlatformX,P4,True,36.5,False
+TKT-00217,2026-07-03,2026-07-03,Login Issue,Login Issue - variant 3,User reported login issue while using PlatformX.,Resolved by applying standard fix #10 from KB.,InsightHub,P4,True,74.3,True
+TKT-00218,2026-04-28,2026-05-02,Login Issue,Login Issue - variant 2,User reported login issue while using InsightHub.,Resolved by applying standard fix #15 from KB.,InsightHub,P1,False,78.3,False
+TKT-00219,2026-01-15,2026-01-19,Billing,Billing - variant 3,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #4 from KB.,PlatformX,P1,True,71.3,True
+TKT-00220,2026-03-21,2026-03-25,Integration,Integration - variant 2,User reported integration while using InsightHub.,Resolved by applying standard fix #16 from KB.,CloudSync,P4,True,29.6,True
+TKT-00221,2026-01-05,2026-01-07,Access Control,Access Control - variant 3,User reported access control while using DataConnect.,Resolved by applying standard fix #10 from KB.,CloudSync,P2,True,56.6,False
+TKT-00222,2026-06-10,2026-06-12,Login Issue,Login Issue - variant 3,User reported login issue while using CloudSync.,Resolved by applying standard fix #5 from KB.,PlatformX,P2,True,50.9,True
+TKT-00223,2026-04-21,2026-04-22,Data Export,Data Export - variant 2,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #16 from KB.,InsightHub,P3,False,74.1,True
+TKT-00224,2026-06-06,2026-06-06,Report Error,Report Error - variant 1,User reported report error while using InsightHub.,Resolved by applying standard fix #8 from KB.,PlatformX,P2,True,56.3,True
+TKT-00225,2026-04-16,2026-04-21,Billing,Billing - variant 3,User reported billing while using InsightHub.,Resolved by applying standard fix #7 from KB.,InsightHub,P2,True,43.9,True
+TKT-00226,2026-06-01,2026-06-05,Data Export,Data Export - variant 1,User reported data export while using DataConnect.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P3,True,117.0,True
+TKT-00227,2026-04-10,2026-04-11,Configuration,Configuration - variant 2,User reported configuration while using AnalyticsPro.,Resolved by applying standard fix #11 from KB.,CloudSync,P2,True,23.9,True
+TKT-00228,2026-05-04,2026-05-04,Performance,Performance - variant 2,User reported performance while using PlatformX.,Resolved by applying standard fix #11 from KB.,AnalyticsPro,P3,False,29.2,True
+TKT-00229,2026-03-17,2026-03-21,Access Control,Access Control - variant 3,User reported access control while using PlatformX.,Resolved by applying standard fix #4 from KB.,AnalyticsPro,P2,True,23.4,True
+TKT-00230,2026-06-11,2026-06-15,Access Control,Access Control - variant 3,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #2 from KB.,CloudSync,P2,False,94.9,True
+TKT-00231,2026-04-02,2026-04-07,Integration,Integration - variant 1,User reported integration while using CloudSync.,Resolved by applying standard fix #19 from KB.,InsightHub,P2,True,94.3,False
+TKT-00232,2026-02-06,2026-02-10,Access Control,Access Control - variant 3,User reported access control while using CloudSync.,Resolved by applying standard fix #12 from KB.,InsightHub,P4,True,39.0,True
+TKT-00233,2026-08-23,2026-08-26,Report Error,Report Error - variant 2,User reported report error while using CloudSync.,Resolved by applying standard fix #13 from KB.,CloudSync,P1,True,26.7,True
+TKT-00234,2026-08-28,2026-08-29,Access Control,Access Control - variant 1,User reported access control while using DataConnect.,Resolved by applying standard fix #14 from KB.,InsightHub,P2,False,30.9,True
+TKT-00235,2026-03-25,2026-03-25,Integration,Integration - variant 2,User reported integration while using CloudSync.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P1,False,61.7,True
+TKT-00236,2026-07-15,2026-07-18,Access Control,Access Control - variant 2,User reported access control while using DataConnect.,Resolved by applying standard fix #16 from KB.,DataConnect,P3,False,3.5,True
+TKT-00237,2026-04-09,2026-04-14,Data Export,Data Export - variant 2,User reported data export while using PlatformX.,Resolved by applying standard fix #10 from KB.,CloudSync,P1,False,111.2,True
+TKT-00238,2026-02-03,2026-02-05,Login Issue,Login Issue - variant 3,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #11 from KB.,AnalyticsPro,P3,False,36.7,False
+TKT-00239,2026-05-07,2026-05-12,Performance,Performance - variant 3,User reported performance while using CloudSync.,Resolved by applying standard fix #9 from KB.,PlatformX,P3,False,98.8,True
+TKT-00240,2026-07-27,2026-07-31,Login Issue,Login Issue - variant 2,User reported login issue while using CloudSync.,Resolved by applying standard fix #5 from KB.,InsightHub,P2,True,86.9,True
+TKT-00241,2026-08-08,2026-08-12,Report Error,Report Error - variant 3,User reported report error while using InsightHub.,Resolved by applying standard fix #11 from KB.,PlatformX,P3,True,51.7,False
+TKT-00242,2026-07-07,2026-07-10,Report Error,Report Error - variant 3,User reported report error while using PlatformX.,Resolved by applying standard fix #12 from KB.,AnalyticsPro,P2,False,113.2,True
+TKT-00243,2026-08-26,2026-08-31,Billing,Billing - variant 2,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #14 from KB.,InsightHub,P4,False,39.5,True
+TKT-00244,2026-01-05,2026-01-06,Billing,Billing - variant 3,User reported billing while using CloudSync.,Resolved by applying standard fix #20 from KB.,CloudSync,P4,False,24.9,True
+TKT-00245,2026-02-18,2026-02-21,Configuration,Configuration - variant 2,User reported configuration while using PlatformX.,Resolved by applying standard fix #11 from KB.,CloudSync,P4,False,11.6,True
+TKT-00246,2026-03-02,2026-03-07,Report Error,Report Error - variant 1,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #7 from KB.,PlatformX,P4,False,25.1,True
+TKT-00247,2026-02-15,2026-02-15,Billing,Billing - variant 3,User reported billing while using PlatformX.,Resolved by applying standard fix #6 from KB.,DataConnect,P4,False,19.3,True
+TKT-00248,2026-03-18,2026-03-21,Report Error,Report Error - variant 3,User reported report error while using PlatformX.,Resolved by applying standard fix #13 from KB.,AnalyticsPro,P2,True,37.5,False
+TKT-00249,2026-08-06,2026-08-10,Integration,Integration - variant 3,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #17 from KB.,InsightHub,P3,True,1.4,True
+TKT-00250,2026-08-03,2026-08-06,Configuration,Configuration - variant 3,User reported configuration while using DataConnect.,Resolved by applying standard fix #19 from KB.,InsightHub,P4,False,69.3,False
+TKT-00251,2026-02-10,2026-02-15,Report Error,Report Error - variant 2,User reported report error while using DataConnect.,Resolved by applying standard fix #13 from KB.,CloudSync,P2,False,30.3,False
+TKT-00252,2026-07-15,2026-07-18,Performance,Performance - variant 3,User reported performance while using CloudSync.,Resolved by applying standard fix #4 from KB.,InsightHub,P1,True,106.3,True
+TKT-00253,2026-05-21,2026-05-25,Integration,Integration - variant 3,User reported integration while using PlatformX.,Resolved by applying standard fix #7 from KB.,InsightHub,P4,True,119.4,True
+TKT-00254,2026-02-17,2026-02-19,Access Control,Access Control - variant 2,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #9 from KB.,AnalyticsPro,P1,False,3.7,False
+TKT-00255,2026-08-13,2026-08-15,Access Control,Access Control - variant 1,User reported access control while using InsightHub.,Resolved by applying standard fix #2 from KB.,PlatformX,P3,True,85.2,True
+TKT-00256,2026-06-22,2026-06-27,Report Error,Report Error - variant 2,User reported report error while using InsightHub.,Resolved by applying standard fix #3 from KB.,PlatformX,P2,False,17.3,True
+TKT-00257,2026-03-06,2026-03-06,Data Export,Data Export - variant 1,User reported data export while using DataConnect.,Resolved by applying standard fix #4 from KB.,CloudSync,P4,True,9.8,True
+TKT-00258,2026-05-05,2026-05-08,Billing,Billing - variant 1,User reported billing while using AnalyticsPro.,Resolved by applying standard fix #2 from KB.,CloudSync,P2,False,83.8,False
+TKT-00259,2026-02-13,2026-02-18,Integration,Integration - variant 2,User reported integration while using PlatformX.,Resolved by applying standard fix #20 from KB.,PlatformX,P1,False,92.2,True
+TKT-00260,2026-06-08,2026-06-09,Data Export,Data Export - variant 1,User reported data export while using InsightHub.,Resolved by applying standard fix #1 from KB.,PlatformX,P3,True,81.8,True
+TKT-00261,2026-04-04,2026-04-09,Performance,Performance - variant 3,User reported performance while using AnalyticsPro.,Resolved by applying standard fix #2 from KB.,InsightHub,P1,False,39.1,False
+TKT-00262,2026-04-20,2026-04-21,Access Control,Access Control - variant 2,User reported access control while using PlatformX.,Resolved by applying standard fix #8 from KB.,AnalyticsPro,P1,False,39.1,True
+TKT-00263,2026-07-21,2026-07-23,Login Issue,Login Issue - variant 2,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P1,False,78.2,True
+TKT-00264,2026-01-03,2026-01-04,Access Control,Access Control - variant 2,User reported access control while using CloudSync.,Resolved by applying standard fix #16 from KB.,PlatformX,P2,False,115.1,False
+TKT-00265,2026-06-21,2026-06-26,Access Control,Access Control - variant 3,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #11 from KB.,AnalyticsPro,P3,False,8.6,True
+TKT-00266,2026-08-13,2026-08-17,Configuration,Configuration - variant 3,User reported configuration while using CloudSync.,Resolved by applying standard fix #1 from KB.,AnalyticsPro,P1,True,37.4,False
+TKT-00267,2026-07-25,2026-07-26,Data Export,Data Export - variant 1,User reported data export while using AnalyticsPro.,Resolved by applying standard fix #12 from KB.,InsightHub,P3,True,18.6,True
+TKT-00268,2026-01-08,2026-01-13,Report Error,Report Error - variant 3,User reported report error while using DataConnect.,Resolved by applying standard fix #5 from KB.,DataConnect,P3,True,62.7,True
+TKT-00269,2026-05-25,2026-05-25,Configuration,Configuration - variant 3,User reported configuration while using DataConnect.,Resolved by applying standard fix #11 from KB.,AnalyticsPro,P2,True,108.8,False
+TKT-00270,2026-04-26,2026-05-01,Configuration,Configuration - variant 3,User reported configuration while using InsightHub.,Resolved by applying standard fix #17 from KB.,DataConnect,P2,False,75.8,True
+TKT-00271,2026-08-03,2026-08-04,Login Issue,Login Issue - variant 3,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #7 from KB.,AnalyticsPro,P1,True,71.3,True
+TKT-00272,2026-04-17,2026-04-17,Access Control,Access Control - variant 3,User reported access control while using InsightHub.,Resolved by applying standard fix #10 from KB.,AnalyticsPro,P2,True,51.2,False
+TKT-00273,2026-04-10,2026-04-12,Report Error,Report Error - variant 3,User reported report error while using AnalyticsPro.,Resolved by applying standard fix #9 from KB.,InsightHub,P1,False,48.1,True
+TKT-00274,2026-08-15,2026-08-18,Access Control,Access Control - variant 1,User reported access control while using InsightHub.,Resolved by applying standard fix #1 from KB.,InsightHub,P4,True,91.2,True
+TKT-00275,2026-03-18,2026-03-23,Performance,Performance - variant 2,User reported performance while using InsightHub.,Resolved by applying standard fix #15 from KB.,DataConnect,P4,False,45.3,False
+TKT-00276,2026-08-03,2026-08-05,Performance,Performance - variant 3,User reported performance while using InsightHub.,Resolved by applying standard fix #7 from KB.,AnalyticsPro,P2,True,2.0,False
+TKT-00277,2026-06-16,2026-06-19,Access Control,Access Control - variant 2,User reported access control while using DataConnect.,Resolved by applying standard fix #13 from KB.,InsightHub,P3,True,49.4,True
+TKT-00278,2026-02-13,2026-02-17,Performance,Performance - variant 1,User reported performance while using InsightHub.,Resolved by applying standard fix #9 from KB.,DataConnect,P4,False,83.7,False
+TKT-00279,2026-07-14,2026-07-19,Configuration,Configuration - variant 1,User reported configuration while using InsightHub.,Resolved by applying standard fix #2 from KB.,DataConnect,P1,True,31.7,True
+TKT-00280,2026-03-09,2026-03-10,Performance,Performance - variant 1,User reported performance while using PlatformX.,Resolved by applying standard fix #3 from KB.,InsightHub,P4,True,62.5,True
+TKT-00281,2026-07-06,2026-07-09,Integration,Integration - variant 3,User reported integration while using DataConnect.,Resolved by applying standard fix #17 from KB.,CloudSync,P4,False,88.2,False
+TKT-00282,2026-02-04,2026-02-09,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #7 from KB.,InsightHub,P3,True,118.4,True
+TKT-00283,2026-01-04,2026-01-04,Access Control,Access Control - variant 3,User reported access control while using InsightHub.,Resolved by applying standard fix #10 from KB.,InsightHub,P2,True,45.3,False
+TKT-00284,2026-03-07,2026-03-10,Performance,Performance - variant 3,User reported performance while using PlatformX.,Resolved by applying standard fix #15 from KB.,CloudSync,P2,True,24.5,False
+TKT-00285,2026-03-26,2026-03-27,Integration,Integration - variant 2,User reported integration while using InsightHub.,Resolved by applying standard fix #20 from KB.,PlatformX,P2,True,35.5,True
+TKT-00286,2026-02-09,2026-02-09,Billing,Billing - variant 1,User reported billing while using CloudSync.,Resolved by applying standard fix #8 from KB.,InsightHub,P4,True,1.6,True
+TKT-00287,2026-01-22,2026-01-26,Login Issue,Login Issue - variant 1,User reported login issue while using AnalyticsPro.,Resolved by applying standard fix #17 from KB.,PlatformX,P4,False,111.9,True
+TKT-00288,2026-06-20,2026-06-23,Billing,Billing - variant 2,User reported billing while using DataConnect.,Resolved by applying standard fix #11 from KB.,AnalyticsPro,P3,False,45.7,True
+TKT-00289,2026-06-28,2026-06-30,Data Export,Data Export - variant 1,User reported data export while using InsightHub.,Resolved by applying standard fix #13 from KB.,AnalyticsPro,P1,True,104.3,True
+TKT-00290,2026-04-12,2026-04-15,Report Error,Report Error - variant 3,User reported report error while using InsightHub.,Resolved by applying standard fix #7 from KB.,PlatformX,P3,True,76.2,True
+TKT-00291,2026-06-22,2026-06-25,Configuration,Configuration - variant 3,User reported configuration while using InsightHub.,Resolved by applying standard fix #13 from KB.,CloudSync,P1,False,51.6,True
+TKT-00292,2026-02-24,2026-02-27,Integration,Integration - variant 3,User reported integration while using AnalyticsPro.,Resolved by applying standard fix #5 from KB.,CloudSync,P1,True,60.0,True
+TKT-00293,2026-05-27,2026-06-01,Report Error,Report Error - variant 1,User reported report error while using InsightHub.,Resolved by applying standard fix #4 from KB.,InsightHub,P2,True,25.8,False
+TKT-00294,2026-02-04,2026-02-07,Login Issue,Login Issue - variant 1,User reported login issue while using DataConnect.,Resolved by applying standard fix #13 from KB.,DataConnect,P2,False,80.1,False
+TKT-00295,2026-02-22,2026-02-23,Report Error,Report Error - variant 1,User reported report error while using DataConnect.,Resolved by applying standard fix #8 from KB.,CloudSync,P1,False,45.6,False
+TKT-00296,2026-07-21,2026-07-26,Access Control,Access Control - variant 1,User reported access control while using AnalyticsPro.,Resolved by applying standard fix #9 from KB.,PlatformX,P3,True,13.8,True
+TKT-00297,2026-04-24,2026-04-24,Billing,Billing - variant 1,User reported billing while using DataConnect.,Resolved by applying standard fix #13 from KB.,CloudSync,P1,False,7.9,False
+TKT-00298,2026-04-28,2026-05-01,Access Control,Access Control - variant 2,User reported access control while using DataConnect.,Resolved by applying standard fix #5 from KB.,CloudSync,P2,True,47.7,False
+TKT-00299,2026-08-11,2026-08-12,Integration,Integration - variant 1,User reported integration while using InsightHub.,Resolved by applying standard fix #15 from KB.,AnalyticsPro,P3,True,89.8,False
+TKT-00300,2026-01-20,2026-01-22,Integration,Integration - variant 3,User reported integration while using PlatformX.,Resolved by applying standard fix #9 from KB.,CloudSync,P4,True,59.7,False

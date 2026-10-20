@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KB Lifecycle Agent — PS-03 Demo</title>
+  <meta name="description" content="AI-powered autonomous multi-agent system that manages the full lifecycle of an organization's knowledge base." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" stroke="url(#g1)" stroke-width="2"/>
+            <path d="M10 16h12M16 10v12" stroke="url(#g2)" stroke-width="2.5" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <div class="logo-title">KB Lifecycle Agent</div>
+          <div class="logo-sub">PS-03 · atomcamp AI Hackathon 2026</div>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusLabel">Idle</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <main class="main">
+    <!-- Sidebar: Agent pipeline -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Agent Pipeline</div>
+      <div class="agent-list" id="agentList">
+        <div class="agent-card" id="agent-ingestion">
+          <div class="agent-icon">⬆️</div>
+          <div class="agent-info">
+            <div class="agent-name">Ingestion</div>
+            <div class="agent-desc">Load &amp; embed 300 tickets</div>
+          </div>
+          <div class="agent-badge" id="badge-ingestion">–</div>
+        </div>
+        <div class="agent-connector"></div>
+        <div class="agent-card" id="agent-audit">
+          <div class="agent-icon">🔍</div>
+          <div class="agent-info">
+            <div class="agent-name">Audit</div>
+            <div class="agent-desc">Detect issues in KB</div>
+          </div>
+          <div class="agent-badge" id="badge-audit">–</div>
+        </div>
+        <div class="agent-connector"></div>
+        <div class="agent-card" id="agent-remediation">
+          <div class="agent-icon">🛠️</div>
+          <div class="agent-info">
+            <div class="agent-name">Remediation</div>
+            <div class="agent-desc">Draft fixes</div>
+          </div>
+          <div class="agent-badge" id="badge-remediation">–</div>
+        </div>
+        <div class="agent-connector"></div>
+        <div class="agent-card" id="agent-verifier">
+          <div class="agent-icon">✅</div>
+          <div class="agent-info">
+            <div class="agent-name">Verifier</div>
+            <div class="agent-desc">Self-correct proposals</div>
+          </div>
+          <div class="agent-badge" id="badge-verifier">–</div>
+        </div>
+        <div class="agent-connector"></div>
+        <div class="agent-card" id="agent-gap">
+          <div class="agent-icon">🧩</div>
+          <div class="agent-info">
+            <div class="agent-name">Gap Detector</div>
+            <div class="agent-desc">Find missing articles</div>
+          </div>
+          <div class="agent-badge" id="badge-gap">–</div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="btn btn-primary" id="btnSweep" onclick="startSweep()">
+          <span class="btn-icon">▶</span> Run Full Sweep
+        </button>
+        <button class="btn btn-ghost" onclick="resetSystem()">Reset</button>
+      </div>
+    </aside>
+
+    <!-- Content area: Tabs -->
+    <section class="content">
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('overview')" id="tab-overview">Overview</button>
+        <button class="tab" onclick="showTab('findings')" id="tab-findings">Findings</button>
+        <button class="tab" onclick="showTab('review')" id="tab-review">Review Queue</button>
+        <button class="tab" onclick="showTab('qa')" id="tab-qa">Ask KB</button>
+        <button class="tab" onclick="showTab('log')" id="tab-log">Audit Log</button>
+      </div>
+
+      <!-- Overview tab -->
+      <div class="tab-content active" id="content-overview">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-articles">–</div>
+            <div class="stat-label">KB Articles</div>
+          </div>
+          <div class="stat-card accent-orange">
+            <div class="stat-value" id="stat-findings">–</div>
+            <div class="stat-label">Issues Found</div>
+          </div>
+          <div class="stat-card accent-purple">
+            <div class="stat-value" id="stat-proposals">–</div>
+            <div class="stat-label">Proposals</div>
+          </div>
+          <div class="stat-card accent-green">
+            <div class="stat-value" id="stat-log">–</div>
+            <div class="stat-label">Audit Events</div>
+          </div>
+        </div>
+
+        <div class="overview-body">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Run Progress</span>
+            </div>
+            <div id="progressLog" class="progress-log">
+              <div class="empty-state">Run a sweep to see live progress →</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header"><span class="panel-title">System</span></div>
+            <div class="info-list">
+              <div class="info-item"><span>Dataset</span><span class="mono">300 tickets</span></div>
+              <div class="info-item"><span>Model</span><span class="mono">GPT-4o</span></div>
+              <div class="info-item"><span>Vector DB</span><span class="mono">ChromaDB</span></div>
+              <div class="info-item"><span>Framework</span><span class="mono">FastAPI</span></div>
+              <div class="info-item"><span>Agents</span><span class="mono">5 active</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Findings tab -->
+      <div class="tab-content" id="content-findings">
+        <div class="findings-filter">
+          <button class="filter-btn active" onclick="filterFindings('all')">All</button>
+          <button class="filter-btn" onclick="filterFindings('duplicate')">Duplicates</button>
+          <button class="filter-btn" onclick="filterFindings('stale')">Stale</button>
+          <button class="filter-btn" onclick="filterFindings('contradiction')">Contradictions</button>
+          <button class="filter-btn" onclick="filterFindings('low_quality')">Low Quality</button>
+          <button class="filter-btn" onclick="filterFindings('gap')">Gaps</button>
+        </div>
+        <div id="findingsList" class="findings-list">
+          <div class="empty-state">Run a sweep to see audit findings</div>
+        </div>
+      </div>
+
+      <!-- Review Queue tab -->
+      <div class="tab-content" id="content-review">
+        <div id="reviewList" class="review-list">
+          <div class="empty-state">No proposals yet — run a sweep first</div>
+        </div>
+      </div>
+
+      <!-- Q&A tab -->
+      <div class="tab-content" id="content-qa">
+        <div class="qa-container">
+          <div class="qa-input-row">
+            <input
+              type="text"
+              id="qaInput"
+              class="qa-input"
+              placeholder="Ask the KB anything… e.g. How to fix login issues in InsightHub?"
+              onkeydown="if(event.key==='Enter') askQuestion()"
+            />
+            <button class="btn btn-primary" onclick="askQuestion()">Ask</button>
+          </div>
+          <div id="qaResult" class="qa-result">
+            <div class="empty-state">Ask a question to get a cited answer from the KB</div>
+          </div>
+          <div class="qa-examples">
+            <span class="qa-label">Try:</span>
+            <button class="example-btn" onclick="setQ('How to resolve access control issues in CloudSync?')">Access control in CloudSync</button>
+            <button class="example-btn" onclick="setQ('Why does billing fail in PlatformX?')">Billing in PlatformX</button>
+            <button class="example-btn" onclick="setQ('How to fix performance issues in DataConnect?')">Performance in DataConnect</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit Log tab -->
+      <div class="tab-content" id="content-log">
+        <div id="auditLogList" class="audit-log-list">
+          <div class="empty-state">Audit log will appear here after a sweep</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
