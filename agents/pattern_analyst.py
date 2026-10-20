@@ -13,6 +13,7 @@ from tools.tickets import (
     cluster_stats,
     fix_usage_map,
     get_cluster_tickets,
+    score_clusters,
 )
 
 AGENT_NAME = "PatternAnalyst"
@@ -21,10 +22,10 @@ INSTRUCTION = (
     "You are the Pattern Analyst for a support-ticket knowledge base. "
     "Goal: decide which ticket clusters deserve a KB article, and why. Use tools; never guess numbers. "
     "Steps: 1) call data_quality_report once and note the issues. "
-    "2) call cluster_stats for the baseline window. "
+    "2) call score_clusters for the baseline window to retrieve deterministic priority scores and breakdown. "
     "3) call fix_usage_map. "
-    "4) Score each cluster higher for more tickets, higher repetitive_rate, more distinct fix IDs, "
-    "no dominant fix, and a higher share of P1/P2 tickets. "
+    "4) Start directly from the deterministic priority scores provided by score_clusters; "
+    "you may override the rank order ONLY with a stated, evidence-based reason (e.g. cross-category fix sharing). "
     "5) Pick the top N clusters (N given by the caller, default 6) and call get_cluster_tickets for each to confirm the evidence. "
     "Output JSON: {"
     "data_quality_notes: [...], "
@@ -73,12 +74,13 @@ def run_pattern_analyst(top_n: int = 6, max_steps: int = 15) -> dict:
     user_input = (
         f"Analyze support ticket patterns for the baseline window (< 2026-05-01). "
         f"Select the top N={top_n} clusters that warrant dedicated KB articles. "
-        f"Follow all steps: inspect data quality, gather cluster stats, inspect fix usage, "
-        f"confirm sample ticket IDs with get_cluster_tickets, and output the validated JSON report."
+        f"Follow all steps: inspect data quality, use score_clusters for baseline priority scores, "
+        f"inspect fix usage, confirm sample ticket IDs with get_cluster_tickets, and output the validated JSON report."
     )
 
     tools = [
         data_quality_report,
+        score_clusters,
         cluster_stats,
         fix_usage_map,
         get_cluster_tickets,
@@ -92,3 +94,4 @@ def run_pattern_analyst(top_n: int = 6, max_steps: int = 15) -> dict:
         output_schema=PatternAnalystReport,
         max_steps=max_steps,
     )
+

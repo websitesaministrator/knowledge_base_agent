@@ -125,6 +125,35 @@ class TestTicketTools(unittest.TestCase):
         bad_signals = compute_cluster_signals(cluster_id="Unknown|Unknown")
         self.assertIn("error", bad_signals)
 
+    def test_score_clusters(self):
+        from tools.tickets import score_clusters
+        res = score_clusters(window="baseline")
+
+        self.assertNotIn("error", res)
+        self.assertEqual(res["total_clusters"], 24)
+        clusters = res["clusters"]
+        self.assertEqual(len(clusters), 24)
+
+        # Check sorted descending by priority_score
+        scores = [c["priority_score"] for c in clusters]
+        self.assertEqual(scores, sorted(scores, reverse=True))
+
+        top = clusters[0]
+        self.assertIn("breakdown", top)
+        bd = top["breakdown"]
+        self.assertIn("volume", bd)
+        self.assertIn("repetition", bd)
+        self.assertIn("fix_inconsistency", bd)
+        self.assertIn("severity", bd)
+        self.assertTrue(0.0 <= bd["volume"] <= 1.0)
+        self.assertTrue(0.0 <= bd["repetition"] <= 1.0)
+        self.assertTrue(0.0 <= bd["fix_inconsistency"] <= 1.0)
+        self.assertTrue(0.0 <= bd["severity"] <= 1.0)
+
+        # Invalid window
+        err = score_clusters(window="invalid")
+        self.assertIn("error", err)
+
 
 if __name__ == "__main__":
     unittest.main()

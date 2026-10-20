@@ -20,6 +20,12 @@ class Settings(BaseSettings):
     agent_max_iterations: int = Field(10, env="AGENT_MAX_ITERATIONS")
     agent_retry_attempts: int = Field(3, env="AGENT_RETRY_ATTEMPTS")
 
+    # Cluster scoring weights
+    weight_volume: float = Field(0.3, env="WEIGHT_VOLUME")
+    weight_repetition: float = Field(0.3, env="WEIGHT_REPETITION")
+    weight_fix_inconsistency: float = Field(0.2, env="WEIGHT_FIX_INCONSISTENCY")
+    weight_severity: float = Field(0.2, env="WEIGHT_SEVERITY")
+
     # Logging
     log_level: str = Field("INFO", env="LOG_LEVEL")
 

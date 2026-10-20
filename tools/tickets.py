@@ -379,3 +379,91 @@ def compute_cluster_signals(cluster_id: str) -> dict:
         "fix_ids_new_in_replay": new_fixes,
         "new_fix_shares_in_replay": new_fix_shares,
     }
+
+
+def score_clusters(window: str = "baseline") -> dict:
+    """
+    Deterministically score clusters for KB article prioritization.
+    Returns sorted list of clusters with priority_score and visible breakdown:
+    - volume: ticket_count scaled 0-1 vs max in window (weight 0.3)
+    - repetition: repetitive_rate 0-1 (weight 0.3)
+    - fix_inconsistency: distinct_fix_ids / ticket_count 0-1 (weight 0.2)
+    - severity: share of P1/P2 tickets 0-1 (weight 0.2)
+    Weights loaded from config.settings. Tie-break: ticket_count descending, cluster_id ascending.
+    """
+    valid_windows = {"baseline", "replay", "all"}
+    if window not in valid_windows:
+        return {"error": f"Invalid window '{window}'. Must be one of: {sorted(list(valid_windows))}"}
+
+    from config import settings
+
+    c_stats = cluster_stats(window=window)
+    if "error" in c_stats:
+        return c_stats
+
+    clusters = list(c_stats["clusters"].values())
+    max_tickets = max((c["ticket_count"] for c in clusters), default=1)
+    if max_tickets == 0:
+        max_tickets = 1
+
+    w_vol = settings.weight_volume
+    w_rep = settings.weight_repetition
+    w_fix = settings.weight_fix_inconsistency
+    w_sev = settings.weight_severity
+
+    scored_list = []
+    for c in clusters:
+        t_count = c["ticket_count"]
+        vol_score = round(t_count / max_tickets, 4)
+        rep_score = round(c["repetitive_rate"], 4)
+
+        # Fix inconsistency: distinct fix count / ticket count
+        dist_count = c["distinct_fix_count"]
+        fix_inconsistency = round(min(dist_count / t_count, 1.0), 4) if t_count > 0 else 0.0
+
+        # Severity score: share of P1 + P2 tickets
+        p1 = c["severity_mix"].get("P1", 0)
+        p2 = c["severity_mix"].get("P2", 0)
+        sev_score = round(min((p1 + p2) / t_count, 1.0), 4) if t_count > 0 else 0.0
+
+        priority = round(
+            vol_score * w_vol + rep_score * w_rep + fix_inconsistency * w_fix + sev_score * w_sev,
+            4,
+        )
+
+        scored_list.append({
+            "cluster_id": c["cluster_id"],
+            "category": c["category"],
+            "subcategory": c["subcategory"],
+            "priority_score": priority,
+            "breakdown": {
+                "volume": vol_score,
+                "repetition": rep_score,
+                "fix_inconsistency": fix_inconsistency,
+                "severity": sev_score,
+            },
+            "ticket_count": t_count,
+            "repetitive_rate": c["repetitive_rate"],
+            "distinct_fix_ids": c["distinct_fix_ids"],
+            "distinct_fix_count": dist_count,
+            "top_fix_ids": c["top_fix_ids"],
+            "top_fix_share": c["top_fix_share"],
+            "has_dominant_fix": c["has_dominant_fix"],
+            "severity_mix": c["severity_mix"],
+        })
+
+    # Sort descending by priority_score, then ticket_count descending, then cluster_id ascending
+    scored_list.sort(key=lambda x: (-x["priority_score"], -x["ticket_count"], x["cluster_id"]))
+
+    return {
+        "window": window,
+        "weights": {
+            "volume": w_vol,
+            "repetition": w_rep,
+            "fix_inconsistency": w_fix,
+            "severity": w_sev,
+        },
+        "total_clusters": len(scored_list),
+        "clusters": scored_list,
+    }
+
